@@ -1,12 +1,19 @@
 import "./DashboardTest.css";
 
-const DashboardTest = ({}) => {
+const DashboardTest = () => {
+
+  const handleClick = () => {
+    console.log('El botón fue clickeado');
+    // Aquí iría la lógica de lo que quieres que suceda cuando se haga clic en el botón
+  };
+  
   return (
     <div className="dashboardtest">
+
       <div className="pageOne">
         <header>
           <h3>Logo</h3>
-          <button>Ver más</button>
+          <button onClick={handleClick}>Ver más</button>
         </header>
 
         <div className="content">
@@ -21,7 +28,7 @@ const DashboardTest = ({}) => {
                 Duis venenatis porttitor est, id egestas <br />
                 risus pharetra sit amet.
               </h5>
-              <button type="button">Ver más</button>
+              <button>Ver más</button>
             </div>
           </div>
           <div className="contentTwo">
@@ -84,34 +91,27 @@ const DashboardTest = ({}) => {
         </div>
       </div>
 
-    
-<footer>
+      <footer>
+        <div className="contentFooter">
+          <div className="textoFooter">
+            <h3>LOREM IPSUM</h3>
 
-    <div className="contentFooter">
-      
-      <div className="textoFooter">
+            <h4>
+              Lorem ipsum dolor sit amet, consectetur adipiscing <br />
+              elit. Lorem ipsum dolor sit amet, consectetur <br /> adipiscing
+              elit.Lorem ipsum dolor sit amet, <br /> consectetur adipiscing
+              elit.
+            </h4>
+          </div>
+          <div className="Icons">
+            <div className="inonografia"></div>
+            <div className="inonografia"></div>
+            <div className="inonografia"></div>
+          </div>
+        </div>
 
-        <h3>LOREM IPSUM</h3>
-
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing <br />elit. Lorem ipsum dolor sit amet, consectetur <br /> adipiscing elit.Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.</h4>
-
-
-      </div>
-      <div className="Icons">
-
-        <div className="inonografia"></div>
-        <div className="inonografia"></div>
-        <div className="inonografia"></div>
-
-
-      </div>
-    </div>
-
-
-      <h3 className="Year">© 2023</h3>
-
-</footer>
-
+        <h3 className="Year">© 2023</h3>
+      </footer>
     </div>
   );
 };
