@@ -2,41 +2,45 @@ import "./Login.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { auth } from "../../services/loginService"
+import { auth } from "../../services/loginService";
 import { useEffect } from "react";
 import { userInfo } from "../../services/loginService";
 
-
 const Login = () => {
-
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navegate = useNavigate();
   const [errorService, setErrorService] = useState(null);
 
   const loginData = async (data) => {
     try {
-      let { correo, clave } = data; 
-      const credentials = { correo, clave }
-      const response = await auth(credentials)
-      const join = response.token_type + " " + response.token
-      sessionStorage.setItem("token", join)
-      const infoUser = await userInfo(join)
+      let { correo, clave } = data;
+      const credentials = { correo, clave };
+      const response = await auth(credentials);
+
+      console.log("Esta es la respuesta: " + response);
+
+      const join = response.token_type + " " + response.token;
+      sessionStorage.setItem("token", join);
+      const infoUser = await userInfo(join);
 
       const infoUserToString = JSON.stringify(infoUser);
 
-      sessionStorage.setItem("userInfo", infoUserToString)
-      navegate("/dashboardTest")
+      sessionStorage.setItem("userInfo", infoUserToString);
+      navegate("/Dashboard");
     } catch (error) {
-      setErrorService(error)
+      setErrorService(error);
     }
-  }
+  };
 
   useEffect(() => {
     if (sessionStorage.getItem("userInfo") != null) {
-      navegate("/Dashboard")
+      navegate("/Dashboard");
     }
-  
-  }, [navegate])
+  }, [navegate]);
 
   return (
     <div className="loginContainer">
@@ -47,17 +51,31 @@ const Login = () => {
 
           {errorService != null && (
             <>
-              <p className="errorMessage">EL usuario o la contraseña no son correctos</p>
+              <p className="errorMessage">
+                EL usuario o la contraseña no son correctos
+              </p>
             </>
           )}
 
           <label htmlFor="">Correo</label>
-          <input type="text" placeholder="example@dominio.com" {...register("correo", { required: "El correo es obligatorio"})}/>
-          {errors.correo && <p className="errorMessage">{errors.correo.message}</p>}
+          <input
+            type="text"
+            placeholder="example@dominio.com"
+            {...register("correo", { required: "El correo es obligatorio" })}
+          />
+          {errors.correo && (
+            <p className="errorMessage">{errors.correo.message}</p>
+          )}
 
           <label htmlFor="">Contraseña</label>
-          <input type="password" placeholder="**********" {...register("clave", { required: "El correo es obligatorio"})} />
-          {errors.clave && <p className="errorMessage">Este campo es requerido</p>}
+          <input
+            type="password"
+            placeholder="**********"
+            {...register("clave", { required: "El correo es obligatorio" })}
+          />
+          {errors.clave && (
+            <p className="errorMessage">Este campo es requerido</p>
+          )}
 
           <div className="options">
             <div className="remember">
@@ -74,25 +92,30 @@ const Login = () => {
             <a
               href="https://www.google.com"
               target="_blank"
-              className="cardIconG">
+              className="cardIconG"
+            >
               <div></div>
             </a>
             <a
               href="https://www.facebook.com"
               target="_blank"
-              className="cardIconF">
+              className="cardIconF"
+            >
               <div></div>
             </a>
             <a
               href="https://www.microsoft.com"
               target="_blank"
-              className="cardIconM">
+              className="cardIconM"
+            >
               <div></div>
             </a>
           </div>
 
           <div className="loginButton">
-            <button type="submit" onClick={handleSubmit(loginData)}>Iniciar Sesión</button>
+            <button type="submit" onClick={handleSubmit(loginData)}>
+              Iniciar Sesión
+            </button>
           </div>
         </div>
       </div>
@@ -107,7 +130,6 @@ const Login = () => {
             <div className="nextImg"></div>
             <div className="nextImg"></div>
             <div className="nextImg"></div>
-
           </div>
         </div>
       </div>

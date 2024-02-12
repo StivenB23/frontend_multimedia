@@ -9,11 +9,11 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 20% auto;
-    color: var(--color-primario);
+    /* color: var(--color-primario);  Comentada por el momento */
 }
 .dashboard section:first-child{
     background-color: aqua;
 }
 .dashboard section:nth-child(2){
-    background-color: aquamarine;
+    background-color: #FAFAFA;
 }
