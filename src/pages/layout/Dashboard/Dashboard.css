@@ -20,10 +20,12 @@
     background-color: aqua;
     text-align: center;
     padding: 10px 0;
+    /* color: var(--color-primario);  Comentada por el momento */
 }
 .dashboard section:first-child{
     background-color: var(--color-gray)
 }
 .dashboard section:nth-child(2){
-    background-color: var(--color-gray-light)
+    background-color: var(--color-gray-light);
+    background-color: #FAFAFA;
 }

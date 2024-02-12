@@ -2,7 +2,20 @@ import React from 'react';
 import './Dashboard.css';
 import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 import ImagePerfil from '../../../assets/img/Perfil.svg'
+import FormCliente from '../../../components/FormCliente/FormCliente';
+import { useNavigate } from 'react-router-dom';
+
+
 const Dashboard = ({ }) => {
+
+	const navegate = useNavigate();
+
+	const cerrarSesion = () =>{
+		console.log("Dio click a cerrar sesión");
+		sessionStorage.removeItem('userInfo');
+		sessionStorage.removeItem('token');
+		navegate("/login")
+	}
 	return (
 		<main className='dashboard'>
 			<section>
@@ -11,10 +24,17 @@ const Dashboard = ({ }) => {
 					<img src={ImagePerfil} alt="" />
 				</figure>
 				Dashboard works!
+
+				<button onClick={cerrarSesion}>CERRAR SESIÓN</button>
+
 			</section>
 			<section>
-				Container Information
-				<FormEmpresa />
+				
+				{/* <FormEmpresa /> */} 
+
+				<FormCliente></FormCliente>
+
+
 			</section>
 		</main>
 	);
