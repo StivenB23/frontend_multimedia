@@ -1,95 +1,99 @@
 .formcliente {
-    border: 1px solid;
-    height: 26rem;
-    margin: 40px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid;
+  height: 26rem;
+  margin: 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .titleFormCliente {
-    margin-top: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
 }
 
 .clienteColor {
-    color: #CA2355;
+  color: #ca2355;
 }
 
 .personalInformation {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    height: 100%;
-    width: 100%;
-    padding: 2%;
-    /* border: 1px solid; */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 100%;
+  width: 100%;
+  padding: 2%;
+  /* border: 1px solid; */
 }
 
 /* SECCIÓN UNO DATOS PERSONALES */
 
 .ContenedorUno {
-    /* border: 1px solid; */
-    margin: 15px;
-    padding: 4%;
+  /* border: 1px solid; */
+  margin: 15px;
+  padding: 4%;
 }
 
 .ContenedorUno label {
-    width: 100%;
-    font-weight: 600;
-    color: #404040;
-    font-size: 14px;
+  width: 100%;
+  font-weight: 600;
+  color: #404040;
+  font-size: 14px;
 }
 
 .ContenedorUno input {
-    padding: 10px;
-    height: 28px;
-    width: 100%;
+  padding: 10px;
+  height: 28px;
+  width: 100%;
 }
 
 /* SECCIÓN DOS DATOS PERSONALES */
 
 .ContenedorDos {
-    /* border: 1px solid; */
-    padding: 4%;
-    margin: 15px;
-
+  /* border: 1px solid; */
+  padding: 4%;
+  margin: 15px;
 }
 
 .ContenedorDos label {
-    width: 100%;
-    font-weight: 600;
-    color: #404040;
-    font-size: 14px;
+  width: 100%;
+  font-weight: 600;
+  color: #404040;
+  font-size: 14px;
 }
 
 .ContenedorDos input {
-    padding: 10px;
-    height: 28px;
-    width: 100%;
+  padding: 10px;
+  height: 28px;
+  width: 100%;
 }
 
 .buttonFormCliente {
-    /* border: 1px solid; */
-    height: 100px;
-    display: flex;
-    justify-content: end;
-    align-items: end;
+  /* border: 1px solid; */
+  height: 100px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
 
-.buttonFormCliente>button {
-    margin-right: 0;
-    margin-bottom: 0;
-    width: 8rem;
-    height: 2rem;
-    background-color: #CA2355;
-    color: white;
-    font-weight: 600;
+.buttonFormCliente > button {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 8rem;
+  height: 2rem;
+  background-color: var(--color-violet);
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.205);
+  font-weight: 600;
+  transition: .4s ease-in-out;
+}
+.buttonFormCliente > button:hover{
+    background-color: var(--color-violet--hover);
 }
