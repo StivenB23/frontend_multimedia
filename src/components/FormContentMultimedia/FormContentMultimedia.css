@@ -1,0 +1,22 @@
+.formContainerContetMultimedia{
+    height: 26rem;
+    width: 70%;
+    background-color: aquamarine;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(92, 92, 92, 0.5);
+}
+.formInputContetMultimedia{
+    display: flex;
+    justify-content: space-evenly;
+}
+.formInputContetMultimedia article:first-child{
+    display: flex;
+    flex-direction: column;
+}    
+.formInputContetMultimedia article:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    background: url("../../assets/img/iconoBigContentMultimedia.svg") no-repeat;
+    background-size: contain;
+}

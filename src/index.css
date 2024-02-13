@@ -21,6 +21,25 @@ input, select, textarea {
 a{
   text-decoration: none;
 }
+input[type=file]{
+  border:1px solid #ccc;
+  border-radius: 5px 5px 5px 5px;
+  border-left: 0;
+}
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: var(--color-violet);
+  padding: 5px 5px;
+  border-radius: 5px 0px 0px 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: var(--color-violet--hover);
+}
 /*
 a {
   font-weight: 500;
