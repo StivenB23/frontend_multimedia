@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3300";
-
 export const createUser = async (usuario) => {
   try {
-    const response = await axios.post(`${API_URL}/usuarios`, usuario, {
+    const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/usuarios`, usuario, {
       headers: {
         "Content-Type": "application/json",
       },

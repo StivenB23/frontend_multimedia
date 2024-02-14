@@ -14,7 +14,7 @@ const Dashboard = ({ }) => {
 			<Sidebar />
 			<section>
 				
-				{/* <FormEmpresa /> */} 
+				{/* <FormEmpresa />  */}
 
 				{/* <FormCliente></FormCliente> */}
 				<FormContentMultimedia />
