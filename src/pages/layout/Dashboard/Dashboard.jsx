@@ -2,9 +2,10 @@ import './Dashboard.css';
 import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 
 import FormCliente from '../../../components/FormCliente/FormCliente';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 import { FormContentMultimedia } from '../../../components/FormContentMultimedia';
+import FormPackage from '../../../components/FormPackage/FormPackage';
 
 
 const Dashboard = ({ }) => {
@@ -12,13 +13,18 @@ const Dashboard = ({ }) => {
 	return (
 		<main className='dashboard'>
 			<Sidebar />
-			<section>
-				
+			<section className='sectionPanel'>
+				<div className="navbar">
+					<div className='iconContainer'>
+						<span className='iconSetting'></span>
+					</div>
+				</div>
 				{/* <FormEmpresa />  */}
 
 				{/* <FormCliente></FormCliente> */}
-				<FormContentMultimedia />
-
+				{/* <FormContentMultimedia /> */}
+				{/* <FormPackage /> */}
+				<Outlet />
 			</section>
 		</main>
 	);

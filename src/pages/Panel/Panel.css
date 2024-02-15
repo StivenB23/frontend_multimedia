@@ -1,0 +1,35 @@
+/* .containerPanel{
+    border: 1px solid #ccc;
+    background-color: #fff;
+} */
+.titlePanel{
+    font-size: 4rem;
+    margin-left: 1rem;
+}
+
+.colorViolet {
+    color: var(--color-violet);
+}
+
+.accessFast{
+    display: flex;
+    margin-left: 1rem;
+    gap: 15px;
+}
+.accessFast a{
+    color: black;
+}
+.accessFast .playlist{
+   line-height: 1;
+}
+.access {
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.197);
+}
+.access  img{
+    width: 120px;
+    height: 120px;
+}

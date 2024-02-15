@@ -1,0 +1,63 @@
+.formPackage {
+    border: 1px solid #ccc;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.iconPackage {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background: url("../../assets/img/iconoPackage.svg") no-repeat;
+    background-size: contain;
+}
+
+.textColorYellow {
+    color: var(--color-yellow);
+}
+
+.formPackage h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.formPackage input {
+    width: 100%;
+    height: 6%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.formPackageTitleTags {
+    display: flex;
+}
+
+.containerButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttonYellow {
+    background-color: var(--color-yellow);
+    width: 8rem;
+    padding: .8rem;
+    color: var(--color-white);
+    font-weight: bold;
+    transition: .3s ease-in-out;
+}
+
+.buttonYellow:hover {
+    background-color: var(--color-yellow--hover);
+}
+
+.description {
+    resize: none;
+    width: 100%;
+}
+
+.formPackageSoundPublicationValidity {
+    display: flex;
+    gap: 10px;
+}
