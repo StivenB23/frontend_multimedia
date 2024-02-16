@@ -1,4 +1,3 @@
-import App from "../App"; // Componente de prueba
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/layout/Dashboard/Dashboard";
 import { Login } from "../pages/Login";

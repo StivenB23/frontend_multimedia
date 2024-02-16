@@ -1,12 +1,15 @@
 import "./Login.css";
+import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { auth } from "../../services/loginService";
-import { useEffect } from "react";
+
 import { userInfo } from "../../services/loginService";
 
 const Login = () => {
+  const [images, setImages] = useState([]);
+
   const {
     register,
     handleSubmit,
@@ -41,6 +44,22 @@ const Login = () => {
       navegate("/Dashboard");
     }
   }, [navegate]);
+
+  useEffect(() => {
+    const imgUpload = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_REST_URL}/banner`,
+          {}
+        );
+        setImages(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    imgUpload();
+  }, []);
 
   return (
     <div className="loginContainer">
@@ -92,22 +111,19 @@ const Login = () => {
             <a
               href="https://www.google.com"
               target="_blank"
-              className="cardIconG"
-            >
+              className="cardIconG">
               <div></div>
             </a>
             <a
               href="https://www.facebook.com"
               target="_blank"
-              className="cardIconF"
-            >
+              className="cardIconF">
               <div></div>
             </a>
             <a
               href="https://www.microsoft.com"
               target="_blank"
-              className="cardIconM"
-            >
+              className="cardIconM">
               <div></div>
             </a>
           </div>
@@ -121,10 +137,22 @@ const Login = () => {
       </div>
 
       <div className="containerTwo">
-        <h2>La melodia que tranforma tu mensaje en <br />una experiencia inolvidable</h2>
+        <h2>
+          La melodia que tranforma tu mensaje en <br />
+          una experiencia inolvidable
+        </h2>
 
         <div className="slider">
-          <div className="imgSlider"></div>
+          <div className="imgSlider">
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Banner ${index + 1}`}
+                style={{ width: "200px", height: "auto" }}
+              />
+            ))}
+          </div>
 
           <div className="nextImgContainer">
             <div className="nextImg"></div>
