@@ -9,11 +9,21 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 20% auto;
-    color: var(--color-primario);
+    color: var(--color-gray-dark);
+}
+
+.dashboard h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+.imagePerfil{
+    background-color: aqua;
+    text-align: center;
+    padding: 10px 0;
 }
 .dashboard section:first-child{
-    background-color: aqua;
+    background-color: var(--color-gray)
 }
 .dashboard section:nth-child(2){
-    background-color: aquamarine;
+    background-color: var(--color-gray-light)
 }
