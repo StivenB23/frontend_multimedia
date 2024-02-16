@@ -175,8 +175,16 @@ input[type="password"] {
 
 .imgSlider {
   width: 28rem;
-  height: 20rem;
-  background-color: #d9d9d9;
+  height: 17rem;
+  border-radius: 10px;
+}
+
+
+.imgSlider .image-gallery-image {
+  border-radius: 5px;
+}
+
+.imgSlider .image-gallery-image img {
   border-radius: 10px;
 }
 

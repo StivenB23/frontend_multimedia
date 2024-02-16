@@ -4,11 +4,39 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { auth } from "../../services/loginService";
-
 import { userInfo } from "../../services/loginService";
+import ReactImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const Login = () => {
   const [images, setImages] = useState([]);
+
+  // VIDEOS
+
+  // const items = [
+  //   {
+  //     original: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
+  //     thumbnail: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
+  //     embedUrl: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
+  //     renderItem: (item) => {
+  //       return (
+  //         <div className='video-wrapper'>
+  //           <iframe width='560' height='315' src={item.embedUrl} frameBorder='0' allowFullScreen></iframe>
+  //         </div>
+  //       );
+  //     }
+  //   },
+  // ];
+
+  // IMAGENES
+
+  const items = images.map((image, index) => ({
+    original: image,
+    thumbnail: image,
+    originalAlt: `Banner ${index + 1}`,
+    thumbnailAlt: `Banner ${index + 1}`,
+  }));
+
 
   const {
     register,
@@ -111,19 +139,22 @@ const Login = () => {
             <a
               href="https://www.google.com"
               target="_blank"
-              className="cardIconG">
+              className="cardIconG"
+            >
               <div></div>
             </a>
             <a
               href="https://www.facebook.com"
               target="_blank"
-              className="cardIconF">
+              className="cardIconF"
+            >
               <div></div>
             </a>
             <a
               href="https://www.microsoft.com"
               target="_blank"
-              className="cardIconM">
+              className="cardIconM"
+            >
               <div></div>
             </a>
           </div>
@@ -144,20 +175,15 @@ const Login = () => {
 
         <div className="slider">
           <div className="imgSlider">
-            {images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Banner ${index + 1}`}
-                style={{ width: "200px", height: "auto" }}
-              />
-            ))}
-          </div>
-
-          <div className="nextImgContainer">
-            <div className="nextImg"></div>
-            <div className="nextImg"></div>
-            <div className="nextImg"></div>
+            <ReactImageGallery
+              items={items}
+              showPlayButton={false}
+              showFullscreenButton={false}
+              showThumbnails={false}
+              showNav={false}
+              showBullets={true}
+              autoPlay={false}
+            />
           </div>
         </div>
       </div>
