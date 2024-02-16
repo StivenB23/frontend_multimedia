@@ -9,6 +9,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 20% auto;
+<<<<<<< HEAD
     color: var(--color-gray-dark);
 }
 
@@ -20,10 +21,17 @@
     background-color: aqua;
     text-align: center;
     padding: 10px 0;
+=======
+    /* color: var(--color-primario);  Comentada por el momento */
+>>>>>>> 4094fbf18a53565713a3befb36677f3d7f55b56c
 }
 .dashboard section:first-child{
     background-color: var(--color-gray)
 }
 .dashboard section:nth-child(2){
+<<<<<<< HEAD
     background-color: var(--color-gray-light)
+=======
+    background-color: #FAFAFA;
+>>>>>>> 4094fbf18a53565713a3befb36677f3d7f55b56c
 }

@@ -84,3 +84,11 @@ button:hover{
   background-color: #b6b4b4;
 
 }
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border-radius: 5px;
+  background-color: #e9eaeb;
+  border: none;
+}
