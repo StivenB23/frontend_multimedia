@@ -1,44 +1,36 @@
 import './Dashboard.css';
 // import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
-import ImagePerfil from '../../../assets/img/Perfil.svg'
-import FormCliente from '../../../components/FormCliente/FormCliente';
-import { useNavigate } from 'react-router-dom';
+// import ImagePerfil from '../../../assets/img/Perfil.svg'
+// import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
+
+// import FormCliente from '../../../components/FormCliente/FormCliente';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Sidebar from '../../../components/Sidebar/Sidebar';
+// import { FormContentMultimedia } from '../../../components/FormContentMultimedia';
+// import FormPackage from '../../../components/FormPackage/FormPackage';
+
 
 
 const Dashboard = () => {
-
 	const navegate = useNavigate();
-
-	const cerrarSesion = () =>{
-		console.log("Dio click a cerrar sesión");
-		sessionStorage.removeItem('userInfo');
-		sessionStorage.removeItem('token');
-		navegate("/login")
-	}
 	return (
 		<main className='dashboard'>
-			<section>
-				<h1>Fedora</h1>
-				<figure className='imagePerfil'>
-					<img src={ImagePerfil} alt="" />
-				</figure>
-				Dashboard works!
+			<Sidebar />
+			<section className='sectionPanel'>
+				<div className="navbar">
+					<div className='iconContainer'>
+						<span className='iconSetting'></span>
+					</div>
+				</div>
+				{/* <FormEmpresa />  */}
 
-				<button onClick={cerrarSesion}>CERRAR SESIÓN</button>
-
-			</section>
-			<section>
-				
-				{/* <FormEmpresa /> */} 
-
-				<FormCliente></FormCliente>
-
-
+				{/* <FormCliente></FormCliente> */}
+				{/* <FormContentMultimedia /> */}
+				{/* <FormPackage /> */}
+				<Outlet />
 			</section>
 		</main>
 	);
 };
-
-Dashboard.propTypes = {};
 
 export default Dashboard;

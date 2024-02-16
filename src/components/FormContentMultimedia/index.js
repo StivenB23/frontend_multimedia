@@ -1,0 +1,1 @@
+export { default as FormContentMultimedia } from './FormContentMultimedia';

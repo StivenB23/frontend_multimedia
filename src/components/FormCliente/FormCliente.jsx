@@ -35,7 +35,7 @@ const FormCliente = ({}) => {
   return (
     <div className="formcliente">
       <h1 className="titleFormCliente">
-        Registrar&nbsp;<span class="clienteColor">cliente</span>
+        Registrar&nbsp;<span className="clienteColor">cliente</span>
       </h1>
       <form>
         <div className="personalInformation">

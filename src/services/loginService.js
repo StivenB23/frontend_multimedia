@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3300/api/v1/auth";
-
 export const auth = async (credentials) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, credentials, {
+    const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/auth/login`, credentials, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -19,7 +17,7 @@ export const auth = async (credentials) => {
 export const userInfo = async (token) => {
   try {
     const response = await axios.post(
-      `${API_URL}/userInfoToken`,
+      `${import.meta.env.VITE_API_REST_URL}/auth/userInfoToken`,
       {},
       {
         headers: {

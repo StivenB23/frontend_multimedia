@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './FormEmpresa.css';
 import { crearSectorEmpresarial, obtenerSectorEmpresarial } from '../../services/sectorEmpresarialServicios';
 
+
 const FormEmpresa = () => {
 	const [sectoresEmpresariales, setsectoresEmpresariales] = useState([]);
 	const [nit, setNit] = useState("");
@@ -10,14 +11,15 @@ const FormEmpresa = () => {
 	const [correo, setcorreo] = useState("");
 	const [direccion, setDireccion] = useState("");
 	const [sectorEmpresarial, setsectorEmpresarial] = useState("");
+
 	useEffect(() => {
 		const obtenerInformacion = async () => {
 			try {
-				const response = await obtenerSectorEmpresarial()
-				setsectoresEmpresariales(response);
-			} catch (error) {
-				console.error('Error al obtener los datos:', error);
-			}
+                const response = await obtenerSectorEmpresarial()
+                setsectoresEmpresariales(response);
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            }
 		}
 		obtenerInformacion()
 	}, [])
