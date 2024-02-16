@@ -1,0 +1,1 @@
+export { default as BannerPanel } from './BannerPanel';

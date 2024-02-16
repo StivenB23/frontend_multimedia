@@ -14,32 +14,6 @@ const Sidebar = ({ }) => {
 		navegate("/login")
 	}
 
-	const location = useLocation();
-	const [activeMenu, setActiveMenu] = useState(null);
-	const [activeSubMenu, setActiveSubMenu] = useState(null);
-
-	const handleMenuClick = (menu) => {
-		setActiveMenu(menu);
-	};
-
-	const handleSubMenuClick = (submenu) => {
-		setActiveSubMenu(submenu);
-	};
-
-	useEffect(() => {
-		const { pathname } = location;
-		if (pathname === '/solicitudes') {
-			setActiveMenu('solicitudes');
-		} else if (pathname === '/mp3') {
-			setActiveMenu('mp3');
-		} else if (pathname === '/listas') {
-			setActiveMenu('listas');
-		} else {
-			setActiveMenu(null);
-		}
-	}, [location]);
-
-
 	return (
 		<section>
 			<h1>Fedora</h1>
@@ -52,33 +26,16 @@ const Sidebar = ({ }) => {
 				<small>Administrador</small>
 			</div>
 			<nav className='links'>
-				{/* <a href=""><img className='icon' src={iconRequest} alt="" /> Solicitudes</a>
-				<a href=""><img className='icon' src={iconSound} alt="" /> Mp3</a>
-				<a href=""><img className='icon' src={iconMusic} alt="" /> Listas de reproducción</a>
-				<a href="" onClick={cerrarSesion}><img  className='icon'src={iconLogout} alt="" />Cerrar Sesión</a> */}
-				<Link to="" className={activeMenu === 'solicitudes' ? 'active' : ''} onClick={() => handleMenuClick('solicitudes')}>
-					<img className='icon' src={iconRequest} alt="" /> Solicitudes
-				</Link>
-				<div className={activeMenu === 'solicitudes' ? 'submenu active' : 'submenu'}>
-					<Link to="#" className={activeSubMenu === 'subMenu1' ? 'active' : ''} onClick={() => handleSubMenuClick('subMenu1')}>
-						Submenú 1
-					</Link>
-					<Link to="#" className={activeSubMenu === 'subMenu2' ? 'active' : ''} onClick={() => handleSubMenuClick('subMenu2')}>
-						Submenú 2
-					</Link>
-				</div>
-
-				<Link to="" className={activeMenu === 'mp3' ? 'active' : ''} onClick={() => handleMenuClick('mp3')}>
-					<img className='icon' src={iconSound} alt="" /> Mp3
-				</Link>
-
-				<Link to="" className={activeMenu === 'listas' ? 'active' : ''} onClick={() => handleMenuClick('listas')}>
-					<img className='icon' src={iconMusic} alt="" /> Listas de reproducción
-				</Link>
-
-				<Link to="#" onClick={cerrarSesion}>
-					<img className='icon' src={iconLogout} alt="" /> Cerrar Sesión
-				</Link>
+				<Link to=""><img className='icon' src={iconRequest} alt="" /> Solicitudes</Link>
+				<Link to=""><img className='icon' src={iconRequest} alt="" /> Ver Solicitudes (Submenu)</Link>
+				<Link to=""><img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)</Link>
+				<Link to=""><img className='icon' src={iconSound} alt="" /> Canciones</Link>
+				<Link to=""><img className='icon' src={iconSound} alt="" /> Explorar canciones Canciones</Link>
+				<Link to=""><img className='icon' src={iconSound} alt="" /> Cargar Canción</Link>
+				<Link to=""><img className='icon' src={iconMusic} alt="" /> Listas de reproducción</Link>
+				<Link to=""><img className='icon' src={iconMusic} alt="" /> Explorar Listas de reproducción</Link>
+				<Link to=""><img className='icon' src={iconMusic} alt="" /> Crear Listas de reproducción</Link>
+				<Link to="" onClick={cerrarSesion}><img  className='icon'src={iconLogout} alt="" />Cerrar Sesión</Link>
 			</nav>
 		</section>
 	);
