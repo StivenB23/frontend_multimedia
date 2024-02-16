@@ -98,7 +98,7 @@ const Login = () => {
       </div>
 
       <div className="containerTwo">
-        <h1>LOREM IPSUM</h1>
+        <h2>La melodia que tranforma tu mensaje en <br />una experiencia inolvidable</h2>
 
         <div className="slider">
           <div className="imgSlider"></div>
