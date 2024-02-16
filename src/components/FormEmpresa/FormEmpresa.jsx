@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './FormEmpresa.css';
 import { crearSectorEmpresarial, obtenerSectorEmpresarial } from '../../services/sectorEmpresarialServicios';
 
-const FormEmpresa = ({ }) => {
+const FormEmpresa = () => {
 	const [sectoresEmpresariales, setsectoresEmpresariales] = useState([]);
 	const [nit, setNit] = useState("");
 	const [nombre, setnombre] = useState("");
