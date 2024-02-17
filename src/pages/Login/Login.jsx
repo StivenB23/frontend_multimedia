@@ -5,38 +5,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { auth } from "../../services/loginService";
 import { userInfo } from "../../services/loginService";
-import ReactImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
+import ReactPlayer from "react-player";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import ReactImageGallery from "react-image-gallery";
+// import "react-image-gallery/styles/css/image-gallery.css";
 
 const Login = () => {
   const [images, setImages] = useState([]);
-
-  // VIDEOS
-
-  // const items = [
-  //   {
-  //     original: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
-  //     thumbnail: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
-  //     embedUrl: 'https://www.youtube.com/watch?v=W6NZfCO5SIk&pp=ygUKamF2YXNjcmlwdA%3D%3D',
-  //     renderItem: (item) => {
-  //       return (
-  //         <div className='video-wrapper'>
-  //           <iframe width='560' height='315' src={item.embedUrl} frameBorder='0' allowFullScreen></iframe>
-  //         </div>
-  //       );
-  //     }
-  //   },
-  // ];
-
-  // IMAGENES
-
-  const items = images.map((image, index) => ({
-    original: image,
-    thumbnail: image,
-    originalAlt: `Banner ${index + 1}`,
-    thumbnailAlt: `Banner ${index + 1}`,
-  }));
-
 
   const {
     register,
@@ -139,22 +115,19 @@ const Login = () => {
             <a
               href="https://www.google.com"
               target="_blank"
-              className="cardIconG"
-            >
+              className="cardIconG">
               <div></div>
             </a>
             <a
               href="https://www.facebook.com"
               target="_blank"
-              className="cardIconF"
-            >
+              className="cardIconF">
               <div></div>
             </a>
             <a
               href="https://www.microsoft.com"
               target="_blank"
-              className="cardIconM"
-            >
+              className="cardIconM">
               <div></div>
             </a>
           </div>
@@ -173,18 +146,39 @@ const Login = () => {
           una experiencia inolvidable
         </h2>
 
-        <div className="slider">
-          <div className="imgSlider">
-            <ReactImageGallery
-              items={items}
-              showPlayButton={false}
-              showFullscreenButton={false}
-              showThumbnails={false}
-              showNav={false}
-              showBullets={true}
-              autoPlay={false}
-            />
-          </div>
+        <div className="imgSlider">
+          <Carousel
+            showArrows={false}
+            showThumbs={false}
+            showStatus={false}
+            autoPlay={true}
+            infiniteLoop={true}
+            style={{ width: "100%", height: "100%" }}>
+              
+            {/* RENDERIZADO DEL VIDEO QUEMADO YOUTUBE */}
+
+            <div style={{ width: "100%", height: "100%" }}>
+              <ReactPlayer
+                url="https://www.youtube.com/watch?v=LmweChiEKiQ"
+                volume={1}
+                muted
+                width="100%"
+                height="100%"
+                playing={true}
+              />
+            </div>
+
+            {/* IMAGENES DEL BACK */}
+
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Banner ${index + 1}`}
+                style={{ width: "100%", height: "100%" }}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
     </div>
