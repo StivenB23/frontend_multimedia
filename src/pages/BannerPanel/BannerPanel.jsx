@@ -1,18 +1,17 @@
-"use client";
-import React from 'react';
-import './BannerPanel.css';
-import PropTypes from 'prop-types';
-import FormBanner from '../../components/FormBanner/FormBanner';
+import "./BannerPanel.css";
 
-const BannerPanel = ({}) => {
-	return (
-		<div className='bannerpanel'>
-			<h2>Banner</h2>
- 			<FormBanner />
- 		</div>
-	);
+import FormBanner from "../../components/FormBanner/FormBanner";
+import CardPublicidad from "../../components/CardPublicidad/CardPublicidad";
+
+const BannerPanel = () => {
+  return (
+    <div className="bannerpanel">
+      <h2 className="TituloBannerComponente">Banner</h2>
+      <FormBanner />
+      <h2 className="TituloBannerComponente">Posición publicidad</h2>
+      <CardPublicidad/>
+    </div>
+  );
 };
-
-BannerPanel.propTypes = {};
 
 export default BannerPanel;

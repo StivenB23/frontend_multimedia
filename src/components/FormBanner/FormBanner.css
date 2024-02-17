@@ -1,6 +1,119 @@
 .formbanner {
-  border: 1px solid #8b8b8b;
-  width: 90%;
-  margin: 10px;
+  height: 18rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
   border-radius: 10px;
+  padding: 2%;
+  display: grid;
+  grid-template-rows: 32% 34% 34%;
 }
+
+.titleBanner {
+  height: 3rem;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.formbanner label {
+  width: 100%;
+  font-size: 15px;
+}
+
+/* APARTADO UNO */
+
+.bannerApartadoOne {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+}
+
+.NamePublicidad {
+  margin: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.NamePublicidad label{
+  font-size: 20px;
+}
+
+.NamePublicidad > input {
+  height: 2rem;
+  width: 80%;
+  padding: 2%;
+}
+
+.TypePublicidad {
+  margin: 10px;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.TypePublicidad label{
+  font-size: 17px;
+  
+}
+
+.imagen{
+  width: 30%;
+  display: flex;
+  gap: 10px;
+}
+.video{
+  width: 30%;
+  display: flex;
+  gap: 10px;
+}
+
+/* APARTADO DOS */
+
+.bannerApartadoTwo {
+  
+  display: flex;
+  width: 100%;
+  height: 5rem;
+}
+
+.CargarArchivo {
+  
+  margin: 10px;
+  width: 53%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CargarArchivo label{
+  
+  font-size: 17px;
+}
+
+
+.CargarArchivo > input[type=file]{
+  width: 100%;
+  height: 25px;
+
+}
+
+.buttonBanner {
+
+  width: 47%;
+  height: 7rem;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  
+ 
+}
+
+.buttonBanner button{
+  background-color: #CA2355;
+  color: #ffffff;
+  width: 60%;
+  height: 35%;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+

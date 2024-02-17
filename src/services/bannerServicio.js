@@ -17,3 +17,15 @@ export const registrarBannerServicio = async (banner) => {
         return error.message;
     }
 }
+
+export const listarBannerServicio = async () => {
+    try {
+        const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/banner/infobBanners`, []
+        );
+        return response;
+    } catch (error) {
+        console.log(error);
+        return error.message;
+    }
+}
+

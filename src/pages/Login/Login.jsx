@@ -1,5 +1,4 @@
 import "./Login.css";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -8,8 +7,7 @@ import { userInfo } from "../../services/loginService";
 import ReactPlayer from "react-player";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import ReactImageGallery from "react-image-gallery";
-// import "react-image-gallery/styles/css/image-gallery.css";
+import { imgUpload } from "../../services/loginService";
 
 const Login = () => {
   const [images, setImages] = useState([]);
@@ -50,19 +48,16 @@ const Login = () => {
   }, [navegate]);
 
   useEffect(() => {
-    const imgUpload = async () => {
+    const imagenes = async () => {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_REST_URL}/banner`,
-          {}
-        );
-        setImages(response.data);
+        const response = await imgUpload();
+        setImages(response);
       } catch (error) {
         console.log(error);
       }
     };
 
-    imgUpload();
+    imagenes();
   }, []);
 
   return (
@@ -154,7 +149,6 @@ const Login = () => {
             autoPlay={true}
             infiniteLoop={true}
             style={{ width: "100%", height: "100%" }}>
-              
             {/* RENDERIZADO DEL VIDEO QUEMADO YOUTUBE */}
 
             <div style={{ width: "100%", height: "100%" }}>

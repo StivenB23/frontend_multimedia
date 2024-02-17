@@ -1,3 +1,9 @@
 .bannerpanel {
-  
+  width: 100%;
+  padding: 2%;
+}
+
+.TituloBannerComponente{
+  font-size: 45px;
+  padding: 1%;
 }
