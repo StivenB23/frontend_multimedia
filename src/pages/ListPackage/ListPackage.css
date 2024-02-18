@@ -1,9 +1,88 @@
 .listpackage {
   margin: 0 30px;
 }
-.search{
-    width: 80%;
-    height: 30px;
-    padding: 5px;
-    border-radius: 5px;
+.filters select{
+  background-color: #fddb89;
+}
+.search {
+  width: 80%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.card .contentList {
+  padding: 0 9px;
+  text-align: center;
+}
+.card {
+  width: 300px;
+  margin: 19px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.card p {
+  margin-top: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.card h3 {
+  font-size: 25px;
+  margin-top: 20px
+}
+.card-background {
+  border-radius: 10px 10px 0 0; 
+  padding-bottom: 40%;
+  background-color: #fddb89;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  display: block;
+}
+
+.card .label {
+  position: absolute;
+  background-color: #fddb89;
+  border-radius: 21px;
+  top: 150px;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.card p {
+  line-height: 1;
+  font-size: 15px;
+}
+
+.card button {
+  padding: 4px 20px;
+  border-radius: 8px;
+  background-color: #fddb89;
+  font-weight: bold;
+  color: #404040;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100px;
+  margin: 1px auto 10px;
+}
+
+.buttonYellow:hover {
+background-color: #fdda8933;
 }
