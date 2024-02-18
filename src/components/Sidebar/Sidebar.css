@@ -1,3 +1,7 @@
+.sidebar{
+    position: relative;
+}
+
 .links{
     display: flex;
     flex-direction: column;

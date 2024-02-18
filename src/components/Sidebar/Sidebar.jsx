@@ -15,7 +15,7 @@ const Sidebar = ({ }) => {
 	}
 
 	return (
-		<section>
+		<section className='sidebar'>
 			<h1>Fedora</h1>
 			<hr />
 			<figure className='imagePerfil'>

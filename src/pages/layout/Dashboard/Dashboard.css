@@ -9,7 +9,6 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 20% auto;
-
     color: var(--color-gray-dark);
 }
 

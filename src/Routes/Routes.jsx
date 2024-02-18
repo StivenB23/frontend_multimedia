@@ -6,6 +6,7 @@ import ListPackage from "../pages/ListPackage/ListPackage";
 import BannerPanel from "../pages/BannerPanel/BannerPanel";
 import FormPackage from "../components/FormPackage/FormPackage";
 import FormCliente from "../components/FormCliente/FormCliente";
+import ListUsers from "../pages/ListUsers/ListUsers";
 
 const MultimediaRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const MultimediaRoutes = () => {
         {/* <Route path="/" element={<App />}></Route> */}
         <Route path="/" element={<Dashboard />}>
           <Route path="/dashboard" element={<Panel />}></Route>
+          <Route path="/users" element={<ListUsers />}></Route>
           <Route path="/paquetes" element={<ListPackage />}></Route>
           <Route path="/banner" element={<BannerPanel />}></Route>
           <Route path="/formpaquetes" element={<FormPackage />}></Route>

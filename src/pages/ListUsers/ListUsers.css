@@ -1,0 +1,14 @@
+.button-aqua {
+    background-color:var(--color-aqua);
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    padding: 4px;
+}
+.button-aqua:hover {
+    background-color:var(--color-aqua--hover);
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    padding: 4px;
+}
