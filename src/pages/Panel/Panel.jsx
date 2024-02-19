@@ -20,7 +20,7 @@ const Panel = ({ }) => {
 						<h3>Paquetes</h3>
 					</div>
 				</Link>
-				<Link to={""}>
+				<Link to={"/users"}>
 					<div className='access'>
 						<img src={iconoUsers} alt="" />
 						<h3>Usuarios</h3>

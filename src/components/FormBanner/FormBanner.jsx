@@ -27,9 +27,9 @@ const FormBanner = () => {
   return (
     <div className="formbanner">
       <form action="">
-     
-          <h2 className="titleBanner">Subir Archivo publicitario</h2>
- 
+
+        <h2 className="titleBanner">Subir Archivo publicitario</h2>
+
 
         {/* APARTADO 1 */}
 
@@ -38,7 +38,21 @@ const FormBanner = () => {
             <label htmlFor="">Nombre Publicidad</label>
             <input type="text" onChange={(e) => setNombre(e.target.value)} />
           </div>
+          <div className="CargarArchivo">
+            <label htmlFor="">Cargar Archivo</label>
+            <input
+              type="file"
+              onChange={(e) => handleFileChange(e)}
+              name=""
+              id=""
+            />
+          </div>
 
+        </div>
+
+        {/* APARTADO 2 */}
+
+        <div className="bannerApartadoTwo">
           <div className="TypePublicidad">
             <label htmlFor="">Tipo Archivo</label>
 
@@ -61,20 +75,6 @@ const FormBanner = () => {
               />
               Video
             </div>
-          </div>
-        </div>
-
-        {/* APARTADO 2 */}
-
-        <div className="bannerApartadoTwo">
-          <div className="CargarArchivo">
-            <label htmlFor="">Cargar Archivo</label>
-            <input
-              type="file"
-              onChange={(e) => handleFileChange(e)}
-              name=""
-              id=""
-            />
           </div>
           <div className="buttonBanner">
             <button type="button" onClick={registrarBanner}>

@@ -26,6 +26,7 @@ const Sidebar = ({ }) => {
 				<small>Administrador</small>
 			</div>
 			<nav className='links'>
+				<Link to="/dashboard"><img className='icon' src={iconRequest} alt="" /> Home</Link>
 				<Link to=""><img className='icon' src={iconRequest} alt="" /> Solicitudes</Link>
 				<Link to=""><img className='icon' src={iconRequest} alt="" /> Ver Solicitudes (Submenu)</Link>
 				<Link to=""><img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)</Link>

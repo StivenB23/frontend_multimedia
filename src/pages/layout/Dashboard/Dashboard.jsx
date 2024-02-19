@@ -6,6 +6,7 @@ import './Dashboard.css';
 // import FormCliente from '../../../components/FormCliente/FormCliente';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../components/Sidebar/Sidebar';
+import { useEffect } from 'react';
 // import { FormContentMultimedia } from '../../../components/FormContentMultimedia';
 // import FormPackage from '../../../components/FormPackage/FormPackage';
 
@@ -13,6 +14,10 @@ import Sidebar from '../../../components/Sidebar/Sidebar';
 
 const Dashboard = () => {
 	const navegate = useNavigate();
+	// useEffect(() => {
+	// 	navegate("/dashboard")
+	// }, [])
+	
 	return (
 		<main className='dashboard'>
 			<Sidebar />

@@ -97,6 +97,30 @@ table tbody tr:hover{
   font-weight: bold;
   color: var(--color-aqua);
 }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Scroll */
+::-webkit-scrollbar-track {
+  background: #fff;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #e4e4e4;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgb(242, 242, 242);
+}
+
 /*
 a {
   font-weight: 500;

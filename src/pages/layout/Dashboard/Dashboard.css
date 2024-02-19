@@ -31,7 +31,9 @@
     background-color: var(--color-gray)
 }
 .dashboard section:nth-child(2){
-    background-color: var(--color-gray-light)
+    background-color: var(--color-gray-light);
+    height: 100vh;
+    overflow-y: auto;
   
 }
 
