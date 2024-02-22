@@ -15,3 +15,12 @@ export const registrarPaqueteServicio = async (paquete) => {
     const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/paquete`, paquete)
     return response.data;
 }
+
+export const obtenerPaquetePorIdServicio = async (id) => {
+    try {
+        const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/paquete/${id}`);
+        return response.data;
+    } catch (error) {
+        return error;
+    }
+}

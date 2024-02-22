@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './ListPackage.css';
 import { obtenerPaquetesServicio } from '../../services/paqueteServicio';
 import { obtenerEtiquetasServicio } from '../../services/etiquetasServicio';
+import { Link } from 'react-router-dom';
 
 const ListPackage = ({ }) => {
 	const [packages, setpackages] = useState([])
@@ -73,9 +74,8 @@ const ListPackage = ({ }) => {
 								<div className="label">{paquete.nombre_etiqueta}</div>
 								<h3>{paquete.nombre}</h3>
 								<p>{textLimite(paquete.descripcion)}...</p>
-
 							</div>
-							<button>Ver más</button>
+							<button><Link to={`/paquete/${paquete.id}`} className="link-button">Ver más</Link></button>
 						</div>
 					))}
 				</div>
