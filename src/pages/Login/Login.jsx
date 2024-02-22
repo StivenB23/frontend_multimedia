@@ -64,7 +64,8 @@ const Login = () => {
     <div className="loginContainer">
       <div className="containerOne">
         <div className="login">
-          <h1>Fedora</h1>
+        
+          <div className="logoLogin"></div>
           <h3>El lugar perfecto para ti</h3>
 
           {errorService != null && (
