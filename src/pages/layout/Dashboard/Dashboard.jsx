@@ -1,7 +1,7 @@
 import './Dashboard.css';
 // import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 // import ImagePerfil from '../../../assets/img/Perfil.svg'
-// import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
+import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 
 // import FormCliente from '../../../components/FormCliente/FormCliente';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Dashboard = () => {
 						<span className='iconSetting'></span>
 					</div>
 				</div>
-				{/* <FormEmpresa />  */}
+				<FormEmpresa /> 
 
 				{/* <FormCliente></FormCliente> */}
 				{/* <FormContentMultimedia /> */}

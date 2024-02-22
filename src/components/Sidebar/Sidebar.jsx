@@ -7,6 +7,15 @@ import iconLogout from '../../assets/img/iconLogout.svg'
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 const Sidebar = ({ }) => {
+	const [user, setUser] = useState({});
+
+	useEffect(() => {
+		setUser(JSON.parse(sessionStorage.getItem('userInfo')));
+		console.log(JSON.parse(sessionStorage.getItem('userInfo')));
+
+	}, [])
+
+
 	const cerrarSesion = () => {
 		console.log("Dio click a cerrar sesión");
 		sessionStorage.removeItem('userInfo');
@@ -36,7 +45,7 @@ const Sidebar = ({ }) => {
 				<Link to=""><img className='icon' src={iconMusic} alt="" /> Listas de reproducción</Link>
 				<Link to=""><img className='icon' src={iconMusic} alt="" /> Explorar Listas de reproducción</Link>
 				<Link to=""><img className='icon' src={iconMusic} alt="" /> Crear Listas de reproducción</Link>
-				<Link to="" onClick={cerrarSesion}><img  className='icon'src={iconLogout} alt="" />Cerrar Sesión</Link>
+				<Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
 			</nav>
 		</section>
 	);
