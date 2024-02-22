@@ -55,7 +55,7 @@
 .card-background {
   border-radius: 10px 10px 0 0; 
   padding-bottom: 40%;
-  background: url("../../assets/img/Auriculares.png"), rgba(253, 218, 137, 0.886)  no-repeat;
+  background: rgba(253, 218, 137, 0.886)  no-repeat;
   background-size: cover;
   background-position: center;
 }

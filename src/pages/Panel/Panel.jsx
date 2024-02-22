@@ -3,6 +3,8 @@ import IconoPackage from "../../assets/img/iconoPackage.svg"
 import iconoBigContentMultimedia from "../../assets/img/iconoBigContentMultimedia.svg"
 import iconoUsers from "../../assets/img/iconoUsers.svg"
 import { Link } from 'react-router-dom';
+import SubscriptionClient from '../SubscriptionClient/SubscriptionClient';
+import FormPlayList from '../../components/FormPlayList/FormPlayList';
 const Panel = ({ }) => {
 	return (
 		<div className='containerPanel'>
@@ -27,6 +29,8 @@ const Panel = ({ }) => {
 					</div>
 				</Link>
 			</div>
+			<SubscriptionClient />
+			<FormPlayList />
 		</div>
 	);
 };

@@ -8,6 +8,7 @@ import FormPackage from "../components/FormPackage/FormPackage";
 import FormCliente from "../components/FormCliente/FormCliente";
 import ListUsers from "../pages/ListUsers/ListUsers";
 import Package from "../pages/Package/Package";
+import SubscriptionClient from "../pages/SubscriptionClient/SubscriptionClient";
 
 const MultimediaRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const MultimediaRoutes = () => {
           <Route path="/paquete/:id" element={<Package />}></Route>
           <Route path="/formpaquetes" element={<FormPackage />}></Route>
           <Route path="/formcliente" element={<FormCliente />}></Route>
+          <Route path="/mySubscription" element={<SubscriptionClient />}></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>

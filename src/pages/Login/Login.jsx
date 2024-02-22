@@ -42,9 +42,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem("userInfo") != null) {
-      navegate("/Dashboard");
-    }
+    // if (sessionStorage.getItem("userInfo") != null) {
+    //   navegate("/Dashboard");
+    // }
   }, [navegate]);
 
   useEffect(() => {
@@ -64,7 +64,8 @@ const Login = () => {
     <div className="loginContainer">
       <div className="containerOne">
         <div className="login">
-          <h1>Fedora</h1>
+        
+          <div className="logoLogin"></div>
           <h3>El lugar perfecto para ti</h3>
 
           {errorService != null && (
@@ -153,8 +154,8 @@ const Login = () => {
 
             <div style={{ width: "100%", height: "100%" }}>
               <ReactPlayer
-                url="https://www.youtube.com/watch?v=LmweChiEKiQ"
-                volume={1}
+                url="https://www.youtube.com/watch?v=P2LwuF7zn9c&pp=ygURcGl0Y2ggY29ycG9yYXRpb24%3D"
+                volume={10}
                 muted
                 width="100%"
                 height="100%"
