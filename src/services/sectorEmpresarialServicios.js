@@ -11,7 +11,7 @@ export const obtenerSectorEmpresarial = async () => {
 export const crearSectorEmpresarial = async (empresa) => {
   try {
     const sectores = await axios.post(
-      `${import.meta.env.VITE_API_REST_URL}/sector-empresarial`,
+      `${import.meta.env.VITE_API_REST_URL}/empresa`,
       empresa
     );
     return sectores.data;

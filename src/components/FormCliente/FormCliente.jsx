@@ -1,7 +1,9 @@
 import "./FormCliente.css";
 import { useForm } from "react-hook-form";
 import { createUser } from "../../services/userService";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { obtenerSectorEmpresarial } from "../../services/sectorEmpresarialServicios";
+import { crearSectorEmpresarial } from "../../services/sectorEmpresarialServicios";
 
 const FormCliente = () => {
   const {
@@ -12,6 +14,7 @@ const FormCliente = () => {
   } = useForm();
 
   const [menuEmpresa, setMenuEmpresa] = useState(false);
+  const [sectoresEmpresariales, setsectoresEmpresariales] = useState("");
 
   const handleChange = (event) => {
     if (event.target.value === "opcion1") {
@@ -23,7 +26,18 @@ const FormCliente = () => {
 
   const registrar = async (data) => {
     try {
-      let { nombre, apellido, correo, telefono } = data;
+      let {
+        nombre,
+        apellido,
+        correo,
+        telefono,
+        nit,
+        correoEmpresa,
+        nombresEmpresa,
+        telefonoEmpresa,
+        sector_empresarial_fk,
+        direccion,
+      } = data;
 
       const cliente_data = {
         nombre,
@@ -34,14 +48,52 @@ const FormCliente = () => {
       };
       const registrarservicio = await createUser(cliente_data);
 
-      if (registrarservicio) {
+      const {id} = registrarservicio.data
+
+      if (registrarservicio && !menuEmpresa) {
         alert("Usuario registrado correctamente");
         reset();
+      }
+
+      if (menuEmpresa) {
+
+        const empresa_data = {
+          nit,
+          nombre: nombresEmpresa,
+          telefono: telefonoEmpresa,
+          direccion,
+          correo: correoEmpresa,
+          usuario_fk: id,
+          sector_empresarial_fk,
+        };
+
+        console.log("Esto es un objeto: " + JSON.stringify(empresa_data));
+
+        const registrarEmpresa = await crearSectorEmpresarial(empresa_data);
+
+        console.log("Insercion de empresa " + registrarEmpresa);
+
+        if (registrarservicio && registrarEmpresa) {
+          alert("Usuario y asignación de empresa registrado correctamente");
+          reset();
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const obtenerInformacion = async () => {
+      try {
+        const response = await obtenerSectorEmpresarial();
+        setsectoresEmpresariales(response);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+    obtenerInformacion();
+  }, []);
 
   return (
     <div className={`formcliente ${menuEmpresa ? "alargarTarjeta" : ""}`}>
@@ -142,9 +194,7 @@ const FormCliente = () => {
                   name=""
                   id=""
                   placeholder="example@dominio.com"
-                  {...register("Nit", {
-                    required: "El nit es obligatorio",
-                  })}
+                  {...register("nit")}
                 />
 
                 <label htmlFor="">Correo</label>
@@ -153,21 +203,22 @@ const FormCliente = () => {
                   name=""
                   id=""
                   placeholder="example@dominio.com"
-                  {...register("correo", {
-                    required: "El correo es obligatorio",
-                  })}
+                  {...register("correoEmpresa")}
                 />
 
                 <label htmlFor="">Sector empresarial</label>
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="example@dominio.com"
-                  {...register("correo", {
-                    required: "El Sector empresarial es obligatorio",
-                  })}
-                />
+                <select name="" id="" {...register("sector_empresarial_fk")}>
+                  <option value="" disabled>
+                    Seleccionar
+                  </option>
+                  {sectoresEmpresariales.map((sectoresEmpresarial) => (
+                    <>
+                      <option value={sectoresEmpresarial.id}>
+                        {sectoresEmpresarial.nombre}
+                      </option>
+                    </>
+                  ))}
+                </select>
               </div>
 
               <div className="ContenedorDos">
@@ -177,9 +228,7 @@ const FormCliente = () => {
                   name=""
                   id=""
                   placeholder="example@dominio.com"
-                  {...register("apellido", {
-                    required: "los nombres es obligatorios",
-                  })}
+                  {...register("nombresEmpresa")}
                 />
 
                 <label htmlFor="">Telefono</label>
@@ -188,9 +237,15 @@ const FormCliente = () => {
                   name=""
                   id=""
                   placeholder="example@dominio.com"
-                  {...register("telefono", {
-                    required: "El telefono es obligatorio",
-                  })}
+                  {...register("telefonoEmpresa")}
+                />
+                <label htmlFor="">Dirección</label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="example@dominio.com"
+                  {...register("direccion")}
                 />
                 <div className="buttonFormEmpresa">
                   <button type="submit" onClick={handleSubmit(registrar)}>
@@ -201,8 +256,6 @@ const FormCliente = () => {
             </div>
           </>
         )}
-
-        {/* <h1 className="PRUEBA">PRUEBA 1</h1> */}
       </form>
     </div>
   );
