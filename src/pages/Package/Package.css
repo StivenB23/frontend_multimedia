@@ -1,127 +1,13 @@
 .Package {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formContent {
-    width: 700px;
-    padding: 4%;
-}
-
-.Package .iconPackage {
- 
-    height: 2rem; 
-    display: inline-block; 
-    vertical-align: middle;
-    background: url("../../assets/img/iconoPackage.svg") no-repeat;
-    background-size: contain;
-}
-
-.textColorYellow {
-    color: var(--color-yellow);
-}
-
-.Package h2 {
-    font-size: 2rem;
-    display: inline-block;
-    margin-bottom:5px;
-}
-
-.PackageTitleTags {
-    gap: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-select {
-    border-radius: 5px;
-    background-color: #e9eaeb;
-    border: none;
-}
-
-.containerButtonPackege {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-}
-
-.buttonYellowPackege {
-    margin: 0;
-    width: 10rem;
-    height: 2rem;
-    background-color: var(--color-yellow);
-    color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.205);
-    font-weight: 600;
-    transition: .4s ease-in-out;
-}
-
-.buttonYellowPackege:hover {
-    background-color: var(--color-yellow--hover);
-}
-
-.descriptionP {
-    width: 100%;
-    overflow: hidden;
-    word-wrap: break-word; 
-}
-
-.PackageSoundPublicationValidity {
-    display: flex; 
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.PackageSoundPublicationValidity div {
-    text-align: left; 
-}
-
-.PackageSoundPublicationValidity label {
-    display: block; 
-}
-
-.PackageSoundPublicationValidity span {
-    display: block; 
-}
-.paquete {
-    position: relative;
-    background-color: #fddb89;
-    border-radius: 21px;
-    font-weight: bold;
-    font-size: 12px;
-    padding: 0 6px;
-    max-width: 300px; /* Ajusta el ancho máximo según tus preferencias */
-    margin-right: auto; /* Alinea a la izquierda */
-}
-
-.buttonWhiteWithYellowBorder {
-    margin: 0;
-    width: 10rem;
-    height: 2rem;
-    background-color: #ffffff;
-    color: var(--color-yellow);
-    border: 2px solid var(--color-yellow);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.205);
-    font-weight: 600;
-    transition: .4s ease-in-out;
-    margin-right: 10px; /* Ajusta el margen derecho según tu preferencia */
-}
-
-.buttonWhiteWithYellowBorder:hover {
-    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el ratón por encima */
-}
-.arrow-back {
-    position: absolute;
-    background-color: #fddb89;
-    width: 20px; 
-    height: 20px;
-    top: 120px;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 12px;
-    padding: 0 4px;
-    transform: rotateY(180deg); /* Rota el elemento 180 grados horizontalmente */
+    width: 80%;
+    background-color: var(--color-white);
+    border: 1px solid #ccc;
 }

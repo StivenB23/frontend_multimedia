@@ -67,7 +67,7 @@ const FormEmpresa = () => {
 				<input type="text" onChange={(e)=>setDireccion(e.target.value)} />
 				<label htmlFor="">Sector empresarial:</label>
 				<select name="" id="" onChange={(e)=>setsectorEmpresarial(e.target.value)}>
-					<option value="" disabled>seleccionar</option>
+					<option value="" selected disabled>seleccionar</option>
 					{sectoresEmpresariales?.map((sectoresEmpresarial) => (
 						<>
 							<option value={sectoresEmpresarial.id}>{sectoresEmpresarial.nombre}</option>

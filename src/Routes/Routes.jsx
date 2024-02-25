@@ -14,7 +14,6 @@ const MultimediaRoutes = () => {
   return (
     <BrowserRouter>
      <Routes>
-        {/* <Route path="/" element={<App />}></Route> */}
         <Route path="/" element={<Dashboard />}>
           <Route path="/dashboard" element={<Panel />}></Route>
           <Route path="/users" element={<ListUsers />}></Route>
@@ -25,7 +24,7 @@ const MultimediaRoutes = () => {
           <Route path="/formcliente" element={<FormCliente />}></Route>
           <Route path="/mySubscription" element={<SubscriptionClient />}></Route>
         </Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );

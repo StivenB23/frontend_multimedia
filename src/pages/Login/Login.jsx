@@ -64,9 +64,8 @@ const Login = () => {
     <div className="loginContainer">
       <div className="containerOne">
         <div className="login">
-        
+
           <div className="logoLogin"></div>
-          <h3>El lugar perfecto para ti</h3>
 
           {errorService != null && (
             <>
@@ -107,7 +106,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="icons">
+          {/* <div className="icons">
             <a
               href="https://www.google.com"
               target="_blank"
@@ -126,7 +125,7 @@ const Login = () => {
               className="cardIconM">
               <div></div>
             </a>
-          </div>
+          </div> */}
 
           <div className="loginButton">
             <button type="submit" onClick={handleSubmit(loginData)}>
@@ -137,11 +136,6 @@ const Login = () => {
       </div>
 
       <div className="containerTwo">
-        <h2>
-          La melodia que tranforma tu mensaje en <br />
-          una experiencia inolvidable
-        </h2>
-
         <div className="imgSlider">
           <Carousel
             showArrows={false}

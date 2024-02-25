@@ -1,0 +1,8 @@
+.myplaylistdashboard{
+    padding: 10px;
+}
+.myplaylistdashboard .list {
+  display: flex;
+  /* justify-content: space-evenly; */
+  gap: 10px;
+}

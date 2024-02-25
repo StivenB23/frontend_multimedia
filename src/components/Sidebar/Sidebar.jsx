@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import ImagePerfil from "../../assets/img/Perfil.svg";
+import ImagePerfil from "../../assets/img/perfil.png";
 import iconRequest from "../../assets/img/notification-circle.svg";
 import iconMusic from "../../assets/img/music-library-2.svg";
 import iconSound from "../../assets/img/sound.svg";
@@ -25,14 +25,13 @@ const Sidebar = () => {
 
 	return (
 		<section className="sidebar">
-			{/* <h1>Fedora</h1> */}
 			<div className="logo"></div>
 			<figure className="imagePerfil">
 				<img src={ImagePerfil} alt="" />
 			</figure>
 			<div className="informationUser">
 				<h3>{user.nombre} {user.apellido}</h3>
-				<small>{user.rol}</small>
+				<small className="role">{user.rol}</small>
 			</div>
 			<nav className="links">
 				<Link to="/dashboard">

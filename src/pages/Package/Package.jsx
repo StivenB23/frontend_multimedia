@@ -5,11 +5,13 @@ import { obtenerPaquetePorIdServicio } from '../../services/paqueteServicio';
 const Package = ({ }) => {
 
     const { id } = useParams();
-	const [paquete, setPaquete] = useState([])
+	const [paquete, setPaquete] = useState({})
+	const [modalClient, setmodalClient] = useState(false);
     useEffect(() => {
         const obtenerPaquete = async () => {
             try {
                 const paquete = await obtenerPaquetePorIdServicio(id);
+                console.log("information:"+paquete);
                 setPaquete(paquete)
             } catch (error) {
                 console.error('Error al obtener el paquete:', error);
@@ -18,12 +20,15 @@ const Package = ({ }) => {
 
         obtenerPaquete();
     }, [id]);
-    
-console.log(paquete);
+
+
+    const show = () => {
+        setmodalClient(!modalClient)
+    }
+
     return (
         <div className='Package'>
-            <form action="">
-                <div className='formContent'>
+            <form className='formContent' action="">
 					<span className='arrow-back'>&#10132;</span> 
                     <h2>{paquete.nombre} <figure className='iconPackage'>
                     </figure></h2>
@@ -47,15 +52,20 @@ console.log(paquete);
                             <span>{paquete.dias_vigencia}</span>
                         </div>
                     </div>
+                    {modalClient && (
+                        <div>
+                            <h2>Modal temporal</h2>
+                            
+                        </div>
+                    )}
                     <div className='containerButtonPackege'>
-					<button type="button" className='buttonYellowPackege' >
-                            Adquirir productos
+					<button type="button" className='buttonYellowPackege' onClick={show} >
+                            Asignar cliente
                         </button>
                         <button type="button" className='buttonWhiteWithYellowBorder' >
                             Clientes
                         </button>
                     </div>
-                </div>
             </form>
         </div>
     );

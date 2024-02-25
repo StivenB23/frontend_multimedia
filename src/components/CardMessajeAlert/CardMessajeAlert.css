@@ -1,0 +1,10 @@
+.cardmessajealert {
+  width: 200px;
+}
+.iconAlert{
+    background: url('../../assets/img/iconoAlert.png') no-repeat;
+    object-fit: contain;
+    background-size: contain;
+    width: 100%;
+    height: 100px;
+}

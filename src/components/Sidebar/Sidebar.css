@@ -14,8 +14,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 45%;
-
-
 }
 
 
@@ -40,6 +38,7 @@
 .imagePerfil{
     width: 100px;
     margin: 0 auto;
+    padding: 0px;
 }
 .links img{
     margin: 0 10px;
@@ -57,6 +56,16 @@
     line-height: 1;
     margin-bottom: 20px;
 }
+
+.informationUser h3{
+    font-size: 1.5rem;
+    color: var(--color-violet);
+}
+
 .activate {
     background-color: red;
+}
+.role{
+    font-weight: normal;
+    font-size: 1rem;
 }
