@@ -7,8 +7,6 @@ import iconLogout from "../../assets/img/iconLogout.svg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
-
 const Sidebar = () => {
 	const [user, setuser] = useState({})
 
@@ -22,68 +20,60 @@ const Sidebar = () => {
 		sessionStorage.removeItem("token");
 	};
 
+  return (
+    <section className="sidebar">
+      <div className="logo"></div>
 
-	return (
-		<section className="sidebar">
-			<div className="logo"></div>
-			<figure className="imagePerfil">
-				<img src={ImagePerfil} alt="" />
-			</figure>
-			<div className="informationUser">
-				<h3>{user.nombre} {user.apellido}</h3>
-				<small className="role">{user.rol}</small>
-			</div>
-			<nav className="links">
-				<Link to="/dashboard">
-					<img className="icon" src={iconRequest} alt="" /> Home
-				</Link>
-				{user?.rol === "Cliente" && (
-					<Link to="">
-						<img className="icon" src={iconRequest} alt="" /> Plan de subscripción
-					</Link>
-				)}
-				<Link to="">
-					<img className="icon" src={iconRequest} alt="" /> Solicitudes
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconRequest} alt="" /> Solicitudes
-				</Link>
-				{/* <Link to="">
-					<img className="icon" src={iconRequest} alt="" /> Ver Solicitudes
-					(Submenu)
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconRequest} alt="" /> Crear Solicitudes
-					(Submenu)
-				</Link> */}
-				{/* <Link to="">
-					<img className="icon" src={iconSound} alt="" /> Canciones
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconSound} alt="" /> Explorar canciones
-					Canciones
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconSound} alt="" /> Cargar Canción
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconMusic} alt="" /> Listas de reproducción
-				</Link>
-				<Link to="">
-					<img className="icon" src={iconMusic} alt="" /> Explorar Listas de
-					reproducción
-				</Link> */}
-				<Link to="">
-					<img className="icon" src={iconMusic} alt="" /> Crear Listas de
-					reproducción
-				</Link>
-				<Link to="" onClick={cerrarSesion}>
-					<img className="icon" src={iconLogout} alt="" />
-					Cerrar Sesión
-				</Link>
-			</nav>
-		</section>
-	);
+      <figure className="imagePerfil">
+        <img src={ImagePerfil} alt="" />
+      </figure>
+      <div className="informationUser">
+        <h3>Albert Ospina</h3>
+        <small>Administrador</small>
+      </div>
+      <nav className="links">
+        <Link to="/dashboard">
+          <img className="icon" src={iconRequest} alt="" /> Home
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconRequest} alt="" /> Solicitudes
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconRequest} alt="" /> Ver Solicitudes
+          (Submenu)
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconRequest} alt="" /> Crear Solicitudes
+          (Submenu)
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconSound} alt="" /> Canciones
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconSound} alt="" /> Explorar canciones
+          Canciones
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconSound} alt="" /> Cargar Canción
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconMusic} alt="" /> Listas de reproducción
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconMusic} alt="" /> Explorar Listas de
+          reproducción
+        </Link>
+        <Link to="">
+          <img className="icon" src={iconMusic} alt="" /> Crear Listas de
+          reproducción
+        </Link>
+        <Link to="" onClick={cerrarSesion}>
+          <img className="icon" src={iconLogout} alt="" />
+          Cerrar Sesión
+        </Link>
+      </nav>
+    </section>
+  );
 };
 
 export default Sidebar;

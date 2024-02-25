@@ -10,20 +10,20 @@ import PromotionalBanner from '../../components/PromotionalBanner/PromotionalBan
 import MyPlayListDashboard from '../../components/MyPlayListDashboard/MyPlayListDashboard';
 import CardMessajeAlert from '../../components/CardMessajeAlert/CardMessajeAlert';
 const Panel = ({ }) => {
-	return (
-		<div className='containerPanel'>
-			<div className='promotionalBanners'>
-				<PromotionalBanner text={"¡Explora la innovación musical hoy mismo!"} link='/login' />
-				<PromotionalBanner text={"¡Explora la innovación musical hoy mismo!"} background='backgroundPink' />
-			</div>
-			<MyPlayListDashboard />
-			<CardMessajeAlert />
-			{/* <FormEmpresa />  */}
+  return (
+    <div className='containerPanel'>
+      <div className='promotionalBanners'>
+        <PromotionalBanner text={"¡Explora la innovación musical hoy mismo!"} link='/login' />
+        <PromotionalBanner text={"¡Explora la innovación musical hoy mismo!"} background='backgroundPink' />
+      </div>
+      <MyPlayListDashboard />
+      <CardMessajeAlert />
+      {/* <FormEmpresa />  */}
 
-			{/* <SubscriptionClient /> */}
-			{/* <FormPlayList /> */}
-		</div>
-	);
-};
+      {/* <SubscriptionClient /> */}
+      {/* <FormPlayList /> */}
+    </div>
+  );
+}
 
 export default Panel;

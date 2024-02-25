@@ -15,11 +15,20 @@ const Dashboard = () => {
 	// useEffect(() => {
 	// 	navegate("/dashboard")
 	// }, [])
+  // useEffect(() => {
+  // 	navegate("/dashboard")
+  // }, [])
 
   return (
     <main className="dashboard">
       <Sidebar />
       <section className="sectionPanel">
+        {/* <div className="navbar">
+          <div className="iconContainer">
+            <span className="iconSetting"></span>
+          </div>
+        </div> */}
+
         {/* <FormEmpresa />  */}
 
         {/* <FormCliente></FormCliente> */}
