@@ -16,17 +16,16 @@ const Dashboard = () => {
   // 	navegate("/dashboard")
   // }, [])
 
-
-
   return (
     <main className="dashboard">
       <Sidebar />
       <section className="sectionPanel">
-        <div className="navbar">
+        {/* <div className="navbar">
           <div className="iconContainer">
             <span className="iconSetting"></span>
           </div>
-        </div>
+        </div> */}
+
         {/* <FormEmpresa />  */}
 
         {/* <FormCliente></FormCliente> */}

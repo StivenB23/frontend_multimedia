@@ -1,6 +1,6 @@
 .formcliente {
   border: 1px solid;
-  height: 26rem;
+  height: 28rem;
   margin: 10px 40px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -8,8 +8,10 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.alargarTarjeta {
+  height: 44rem;
 }
 
 .titleFormCliente {
@@ -25,21 +27,18 @@
 }
 
 .personalInformation {
-  display: flex;
- 
-  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 2%;
+  flex-wrap: wrap;
   width: 100%;
-  padding: 4%;
-  gap: 53px;
-  /* border: 1px solid; */
+  height: 200px;
 }
 
 /* SECCIÓN UNO DATOS PERSONALES */
 
 .ContenedorUno {
-  /* border: 1px solid; */
-  /* margin: 15px; */
-  /* padding: 4%; */
+  margin: 20px;
 }
 
 .ContenedorUno label {
@@ -56,9 +55,7 @@
 /* SECCIÓN DOS DATOS PERSONALES */
 
 .ContenedorDos {
-  /* border: 1px solid; */
-  /* padding: 4%; */
-  /* margin: 15px; */
+  margin: 20px;
 }
 
 .ContenedorDos label {
@@ -73,24 +70,104 @@
 }
 
 .buttonFormCliente {
-  /* border: 1px solid; */
-  height: 100px;
+  width: 100%;
   display: flex;
   justify-content: end;
   align-items: end;
+  padding: 2%;
 }
 
 .buttonFormCliente > button {
-  margin-right: 0;
-  margin-bottom: 0;
+  margin: 10px;
   width: 8rem;
   height: 2rem;
   background-color: var(--color-violet);
   color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.205);
   font-weight: 600;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
-.buttonFormCliente > button:hover{
-    background-color: var(--color-violet--hover);
+.buttonFormCliente > button:hover {
+  background-color: var(--color-violet--hover);
+}
+
+/* APARTADO EMPRESA + FORMULARIO*/
+
+.TitleEmpresaApartado {
+  width: 100%;
+  margin: 20px;
+  padding: 2%;
+}
+
+.optionEmpresa {
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 10% 10%;
+  width: 100%;
+  height: 1.5rem;
+  align-items: center;
+}
+
+.opcionUno {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.opcionDos {
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.opcionUno > input {
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opcionDos > input {
+  width: 3rem;
+}
+
+.titleFormEmpresa {
+  margin-left: 35px;
+  margin-top: 20px;
+  /* border: 1px solid; */
+}
+
+.FormEmpresa {
+  /* border: 1px solid; */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 20px;
+  flex-wrap: wrap;
+  height: 250px;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttonFormEmpresa {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 2%;
+}
+.buttonFormEmpresa > button {
+  margin: 10px;
+  width: 8rem;
+  height: 2rem;
+  background-color: var(--color-violet);
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.205);
+  font-weight: 600;
+  transition: 0.4s ease-in-out;
+}
+
+.buttonFormEmpresa > button:hover {
+  background-color: var(--color-violet--hover);
 }

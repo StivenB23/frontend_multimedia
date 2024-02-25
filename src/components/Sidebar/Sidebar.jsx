@@ -6,23 +6,17 @@ import iconSound from "../../assets/img/sound.svg";
 import iconLogout from "../../assets/img/iconLogout.svg";
 import { Link } from "react-router-dom";
 
-
-
 const Sidebar = () => {
-
-
   const cerrarSesion = () => {
     console.log("Dio click a cerrar sesión");
     sessionStorage.removeItem("userInfo");
     sessionStorage.removeItem("token");
   };
 
-
   return (
     <section className="sidebar">
-      {/* <h1>Fedora</h1> */}
       <div className="logo"></div>
-      <hr />
+
       <figure className="imagePerfil">
         <img src={ImagePerfil} alt="" />
       </figure>
