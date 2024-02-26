@@ -24,3 +24,12 @@ export const obtenerPaquetePorIdServicio = async (id) => {
         return error;
     }
 }
+
+export const comprarPaqueteCliente = async (paquete) => {
+    try {
+        const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/usuarios/paquete`, paquete);
+        return response.data;
+    } catch (error) {
+        return error;
+    }
+}

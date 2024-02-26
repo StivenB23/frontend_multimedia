@@ -34,7 +34,7 @@
     background-color: var(--color-gray-light);
     height: 100vh;
     overflow-y: auto;
-  
+    padding: 10px;
 }
 
 /* .navbar{

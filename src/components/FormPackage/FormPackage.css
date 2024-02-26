@@ -11,13 +11,13 @@
     align-items: center;
 
 }
-.formContent{
+/* .formContent{
     display: grid;
     height: 100%;
     width: 100%;
     padding: 4%;
     padding-top: 54px;
-}
+} */
 .iconPackage {
     width: 150px;
     height: 150px;
@@ -94,6 +94,7 @@ margin-right: 0;
 }
 
 .formPackageSoundPublicationValidity {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     gap: 10px;
 }

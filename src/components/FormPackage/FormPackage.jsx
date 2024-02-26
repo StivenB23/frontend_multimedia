@@ -9,8 +9,11 @@ const FormPackage = ({ }) => {
 	const [etiqueta, setEtiqueta] = useState("")
 	const [descripcion, setDescripcion] = useState("")
 	const [numeroCanciones, setNumeroCanciones] = useState(0)
-	const [numeroPublicidad, setPublicidad] = useState(0)
-	const [diaSVigencia, setdiaSVigencia] = useState(0)
+	const [numeroPromociones, setnumeroPromociones] = useState(0)
+	const [numeroJingles, setnumeroJingles] = useState(0)
+	const [numeroEnlaces, setnumeroEnlaces] = useState(0)
+	const [precio, setprecio] = useState(0)
+	const [diasVigencia, setdiasVigencia] = useState(0)
 
 	useEffect(() => {
 		const obtenerEtiquetas = async () => {
@@ -31,8 +34,11 @@ const FormPackage = ({ }) => {
 				etiqueta: etiqueta,
                 descripcion: descripcion,
                 numeroCanciones: numeroCanciones,
-                numeroPublicidad: numeroPublicidad,
-                diasVigencia: diaSVigencia
+                numeroPromociones: numeroPromociones,
+                numeroJingles: numeroJingles,
+                numeroEnlaces: numeroEnlaces,
+                precio: precio,
+                diasVigencia: diasVigencia
 			}
 			const response = await registrarPaqueteServicio(paquete);
 			console.log(response);
@@ -45,8 +51,8 @@ const FormPackage = ({ }) => {
 		<div className='formPackage'>
 			<form action="">
 				<div className='formContent'>
-				<figure className='iconPackage'>
-				</figure>
+				{/* <figure className='iconPackage'>
+				</figure> */}
 				<h2>Registrar <span className='textColorYellow'>Paquete</span></h2>
 				<div className='formPackageTitleTags'>
 					<div className='titulo'>
@@ -54,7 +60,7 @@ const FormPackage = ({ }) => {
 						<input type="text" onChange={(e)=>setTitulo(e.target.value)} id="" />
 					</div>
 					<div>
-						<label htmlFor="">Etiquetas</label> <br />
+						<label htmlFor="">tipo de paquete</label> <br />
 						<select className='etiqueta' name="" onChange={(e)=>setEtiqueta(e.target.value)} id="">
 							{etiquetas.map((etiqueta) => (
 								<option value={etiqueta.id}>{etiqueta.nombre}</option>
@@ -70,12 +76,24 @@ const FormPackage = ({ }) => {
 						<input type="number" onChange={(e)=>setNumeroCanciones(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
-						<label htmlFor="">Número de publicidades</label>
-						<input type="number" onChange={(e)=>setPublicidad(e.target.value)} min={0} name="" id="" />
+						<label htmlFor="">Número de promociones</label>
+						<input type="number" onChange={(e)=>setnumeroPromociones(e.target.value)} min={0} name="" id="" />
+					</div>
+					<div>
+						<label htmlFor="">Número de jingles</label>
+						<input type="number" onChange={(e)=>setnumeroJingles(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Días de vigencia</label>
-						<input type="number" onChange={(e)=>setdiaSVigencia(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e)=>setNumeroCanciones(e.target.value)} min={0} name="" id="" />
+					</div>
+					<div>
+						<label htmlFor="">Número de enlaces</label>
+						<input type="number" onChange={(e)=>setnumeroEnlaces(e.target.value)} min={0} name="" id="" />
+					</div>
+					<div>
+						<label htmlFor="">Precio</label>
+						<input type="number" onChange={(e)=>setprecio(e.target.value)} min={0} name="" id="" />
 					</div>
 				</div>
 				<div className='containerButton'>

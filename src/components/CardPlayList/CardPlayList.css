@@ -1,5 +1,4 @@
 .cardplaylist {
-  width: 25%;
   border-radius: 10px;
   border: 1px solid #ccc;
   overflow: hidden;
@@ -18,5 +17,9 @@
 }
 .informationCard p{
     font-size: 15px;
-    color: #8b8b8b;
+    color: #4d4d4d;
+}
+.numberSounds{
+    text-align: center;
+    font-weight: bolder;
 }

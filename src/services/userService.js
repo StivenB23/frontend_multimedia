@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getUsersServicio = async () => {
+export const getUsersServicio = async (filters = {}) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/usuarios`);
+    const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/usuarios`, {params: filters});
     return response.data;
   } catch (error) {
     console.log(error);

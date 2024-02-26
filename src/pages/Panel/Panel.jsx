@@ -9,7 +9,16 @@ import FormEmpresa from '../../components/FormEmpresa/FormEmpresa';
 import PromotionalBanner from '../../components/PromotionalBanner/PromotionalBanner';
 import MyPlayListDashboard from '../../components/MyPlayListDashboard/MyPlayListDashboard';
 import CardMessajeAlert from '../../components/CardMessajeAlert/CardMessajeAlert';
+import CardSuscriptionClient from '../../components/CardSuscriptionClient/CardSuscriptionClient';
+import { useEffect, useState } from 'react';
 const Panel = ({ }) => {
+  const [cambioClave, setcambioClave] = useState(false)
+  useEffect(() => {
+      setcambioClave(JSON.parse(sessionStorage.getItem('userInfo')).primer_cambio_clave);
+  
+  }, [])
+  
+
   return (
     <div className='containerPanel'>
       <div className='promotionalBanners'>
@@ -17,7 +26,16 @@ const Panel = ({ }) => {
         <PromotionalBanner text={"¡Explora la innovación musical hoy mismo!"} background='backgroundPink' />
       </div>
       <MyPlayListDashboard />
-      <CardMessajeAlert />
+      <div className='information' >
+        <CardSuscriptionClient />
+        {/* <CardMessajeAlert /> */}
+        <CardMessajeAlert typeMessage="informationIncomplete"/>
+        {cambioClave == 0 && (
+          <CardMessajeAlert type='info' typeMessage='changePassword' />
+        )}
+        {/* <CardMessajeAlert /> */}
+      </div>
+
       {/* <FormEmpresa />  */}
 
       {/* <SubscriptionClient /> */}

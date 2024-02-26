@@ -1,0 +1,31 @@
+.cardSuscriptionClient{
+    /* width: 30%;  */
+    min-height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.cardSuscriptionClient .cardBody{
+    margin-top: 30px;
+}
+.cardSuscriptionClient h3{
+    line-height: 1;
+}
+.cardSuscriptionClientHeader{
+    background-color: var(--color-yellow);
+    color: var(--color-white);
+    text-shadow: 0 5px 9px rgb(192, 145, 35);
+    text-align: center;
+}
+.datesPackage{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    color: var(--color-violet);
+    margin-top: 20px;
+}
+.colorViolet{
+    color: var(--color-violet);
+    font-size: 2rem;
+}

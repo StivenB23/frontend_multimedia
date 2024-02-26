@@ -6,6 +6,7 @@
 
 .backgroundBlue {
     display: flex;
+    /* width: 50%; */
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -23,6 +24,7 @@
 
 .backgroundPink {
     display: flex;
+    /* width: 50%; */
     justify-content: center;
     align-items: center;
     cursor: pointer;
