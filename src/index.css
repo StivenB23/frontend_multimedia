@@ -10,8 +10,10 @@
   --color-gray-light: rgb(250, 250, 250);
   --color-white: rgb(255, 255, 255);
   --color-violet: rgb(202, 35, 85);
+  --color-violet--light: rgba(202, 35, 85, 15%);
+  --color-violet--light2: rgb(250, 233, 238);
   --color-violet--hover: rgb(160, 29, 68);
-  --color-yellow: rgb(229, 177, 53);
+  --color-yellow: rgb(255, 206, 89);
   --color-yellow--hover: rgb(206, 159, 48);
   --color-aqua: rgb(20, 194, 223);
   --color-aqua--hover: rgb(16, 163, 189);
@@ -22,6 +24,10 @@ input,
 select,
 textarea {
   outline: none;
+}
+
+select, input[type="radio"]{
+  accent-color: var(--color-violet)
 }
 
 a {
@@ -96,6 +102,22 @@ table tbody tr:last-of-type {
 table tbody tr:hover{
   font-weight: bold;
   color: var(--color-aqua);
+}
+
+.button-aqua {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: bold;
+  transition: 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.button-violet {
+  background-color: var(--color-violet);
+  color: var(--color-white);
+  font-weight: bold;
+  transition: 1s ease-in-out;
+  border-radius: 10px;
 }
 
 

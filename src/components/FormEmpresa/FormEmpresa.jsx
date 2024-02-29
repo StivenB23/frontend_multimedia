@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './FormEmpresa.css';
 import { crearSectorEmpresarial, obtenerSectorEmpresarial } from '../../services/sectorEmpresarialServicios';
-
+import { registrarEmpresaServicio } from '../../services/empresaServicio';
 
 const FormEmpresa = () => {
 	const [sectoresEmpresariales, setsectoresEmpresariales] = useState([]);
@@ -26,17 +26,27 @@ const FormEmpresa = () => {
 
 	const registrarEmpresa = async (e) => {
 		e.preventDefault();
+	// 	nit,
+    //   nombre,
+    //   telefono,
+    //   direccion,
+    //   correo,
+    //   usuario_fk,
+    //   sector_empresarial_fk,
 		const empresa = {
 			nit: nit,
             nombre: nombre,
             telefono: telefono,
             correo: correo,
             direccion: direccion,
-            sectorEmpresarial: sectorEmpresarial
+            usuario_fk: null,
+            sector_empresarial_fk: sectorEmpresarial
 		}
 		try {
-            const response = await crearSectorEmpresarial(empresa)
-            setsectoresEmpresariales(response);
+			console.log(empresa);
+            const response = await registrarEmpresaServicio(empresa)
+			console.log(response);
+            // setsectoresEmpresariales(response);
         } catch (error) {
             console.error('Error al obtener los datos:', error);
         }
@@ -57,8 +67,8 @@ const FormEmpresa = () => {
 				<input type="text" onChange={(e)=>setDireccion(e.target.value)} />
 				<label htmlFor="">Sector empresarial:</label>
 				<select name="" id="" onChange={(e)=>setsectorEmpresarial(e.target.value)}>
-					<option value="" disabled>seleccionar</option>
-					{sectoresEmpresariales.map((sectoresEmpresarial) => (
+					<option value="" selected disabled>seleccionar</option>
+					{sectoresEmpresariales?.map((sectoresEmpresarial) => (
 						<>
 							<option value={sectoresEmpresarial.id}>{sectoresEmpresarial.nombre}</option>
 						</>

@@ -1,0 +1,25 @@
+.cardplaylist {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.imageCard{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/img/textura.png'); /* Imagen de filtro */
+    background-color: var(--color-violet); /* Color de fondo */
+    background-blend-mode: overlay; /* Mezcla los colores de fondo */
+}
+.informationCard{
+    padding: 10px;
+}
+.informationCard p{
+    font-size: 15px;
+    color: #4d4d4d;
+}
+.numberSounds{
+    text-align: center;
+    font-weight: bolder;
+}

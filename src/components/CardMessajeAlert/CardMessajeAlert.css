@@ -1,0 +1,25 @@
+.cardmessajealert {
+  /* max-width: 30%; */
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+.alert{
+  background: url('../../assets/img/iconoAlert.png') no-repeat;
+}
+.info{
+  background: url('../../assets/img/iconoinfo.svg') no-repeat;
+}
+.cardmessajealert .icon{
+    object-fit: contain;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100px;
+}
+.messageCard{
+  font-size: 1rem;
+  line-height: 18px;
+  margin-bottom: 10px;
+}

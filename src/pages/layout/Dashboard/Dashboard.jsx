@@ -1,7 +1,7 @@
 import "./Dashboard.css";
 // import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 // import ImagePerfil from '../../../assets/img/Perfil.svg'
-// import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
+import FormEmpresa from '../../../components/FormEmpresa/FormEmpresa';
 
 // import FormCliente from '../../../components/FormCliente/FormCliente';
 import { Outlet, useNavigate } from "react-router-dom";
@@ -11,7 +11,10 @@ import { useEffect } from "react";
 // import FormPackage from '../../../components/FormPackage/FormPackage';
 
 const Dashboard = () => {
-  const navegate = useNavigate();
+	const navegate = useNavigate();
+	// useEffect(() => {
+	// 	navegate("/dashboard")
+	// }, [])
   // useEffect(() => {
   // 	navegate("/dashboard")
   // }, [])

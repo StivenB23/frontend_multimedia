@@ -1,0 +1,13 @@
+
+.myplaylistdashboard .list {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+.messageNotPlayList{
+  height: 200px;
+  display: flex;
+  background-color: #ccc;
+  justify-content: center;
+  align-items: center;
+}
