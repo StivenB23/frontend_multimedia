@@ -1,0 +1,65 @@
+.listsong {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+}
+
+.listsong h2 {
+    text-align: start;
+    font-size: 3rem;
+    width: 100%;
+    margin: 0 !important;
+    color: #3C3C3C;
+}
+
+.searchSong{
+    width: 100%;
+
+}
+
+.listsong input {
+    width: 50%;
+    height: 2rem;
+    padding: 2%;
+    /* margin-left: 20px; */
+
+}
+
+/* FILTERS */
+
+
+.filters{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+
+.filterState{
+    background-color: #CA2355;
+    width: 8rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.filterRol{
+    
+    background-color: #CA2355;
+    width: 8rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 10px;
+
+}
+
+
+/* CARD SONG */
+
+.cardSong{
+    margin-top: 20px;
+    border: 1px solid;
+    width: 10rem;
+    height: 10rem;
+}

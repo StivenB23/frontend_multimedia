@@ -2,7 +2,6 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    
 }
 
 .promotionalBanners {
@@ -19,15 +18,18 @@
 }
 
 .ContenedorModal {
-    top: 10%;
-    display: flex;
-    justify-content: center;
+    top: 15%;
     position: absolute;
     width: 100%;
+
 }
 
 .blurEffect {
     filter: blur(3px);
     pointer-events: none;
     user-select: none;
+}
+
+.backgroundIsOpenModal{
+    background-color: rgba(214, 212, 212, 0.5); 
 }

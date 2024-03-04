@@ -26,8 +26,10 @@ const Panel = ({}) => {
   console.log("ESTADO DE LA MODAL: " + isModalOpen);
 
   return (
-    <div className="containerPanel">
+    <div className={`containerPanel ${isModalOpen ? 'backgroundIsOpenModal' : ''}`}>
+
       <div className={`promotionalBanners ${isModalOpen ? 'blurEffect' : ''}`}>
+        
         <PromotionalBanner 
           text={"¡Explora la innovación musical hoy mismo!"}
           link="/login"
