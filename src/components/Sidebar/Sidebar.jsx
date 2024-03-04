@@ -14,6 +14,7 @@ const Sidebar = () => {
   const [listasReproduccionOpen, setListasReproduccionOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
+
   useEffect(() => {
     setuser(JSON.parse(sessionStorage.getItem('userInfo')));
   }, [])
@@ -61,6 +62,12 @@ const Sidebar = () => {
         <small>{user.rol}</small>
       </div>
       <nav className='links'>
+                <li onClick={setFalseToogle}>
+                    <Link className="mainMenu" to="/formMultiStep/formOne">
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>FORMULARIO MULTI STEP</p>
+                    </Link>
+                </li>
                 <li onClick={setFalseToogle}>
                     <Link className="mainMenu" to="/dashboard">
                         <img className='icon' src={iconRequest} alt="" />
@@ -122,6 +129,10 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
+                
+                
+
+
             </nav>
     </section>
   );
