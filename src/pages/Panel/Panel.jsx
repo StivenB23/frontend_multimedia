@@ -11,11 +11,10 @@ import MyPlayListDashboard from "../../components/MyPlayListDashboard/MyPlayList
 import CardMessajeAlert from "../../components/CardMessajeAlert/CardMessajeAlert";
 import CardSuscriptionClient from "../../components/CardSuscriptionClient/CardSuscriptionClient";
 import { useEffect, useState } from "react";
-import ModalTest from "../../components/ModalTest/ModalTest";
+
 import Sidebar from "../../components/Sidebar/Sidebar";
 const Panel = ({}) => {
   const [cambioClave, setcambioClave] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setcambioClave(
@@ -26,11 +25,9 @@ const Panel = ({}) => {
   console.log("ESTADO DE LA MODAL: " + isModalOpen);
 
   return (
-    <div className={`containerPanel ${isModalOpen ? 'backgroundIsOpenModal' : ''}`}>
-
-      <div className={`promotionalBanners ${isModalOpen ? 'blurEffect' : ''}`}>
-        
-        <PromotionalBanner 
+    <div className="containerPanel">
+      <div className="promotionalBanners">
+        <PromotionalBanner
           text={"¡Explora la innovación musical hoy mismo!"}
           link="/login"
         />
@@ -40,11 +37,11 @@ const Panel = ({}) => {
         />
       </div>
 
-      <div className={`MyPlayList ${isModalOpen ? 'blurEffect' : ''}`}>
-      <MyPlayListDashboard/>
+      <div className="MyPlayList">
+        <MyPlayListDashboard />
       </div>
 
-      <div className={`information ${isModalOpen ? 'blurEffect' : ''}`}>
+      <div className="information">
         <CardSuscriptionClient />
         {/* <CardMessajeAlert /> */}
         <CardMessajeAlert typeMessage="informationIncomplete" />
@@ -58,15 +55,6 @@ const Panel = ({}) => {
 
       {/* <SubscriptionClient /> */}
       {/* <FormPlayList /> */}
-
-      <button onClick={() => setIsModalOpen(true)}>OPRIMEME</button>
-
-      <div className="ContenedorModal">
-        <ModalTest
-          isOpen={isModalOpen}
-          closeModal={() => setIsModalOpen(false)}
-        ></ModalTest>
-      </div>
     </div>
   );
 };

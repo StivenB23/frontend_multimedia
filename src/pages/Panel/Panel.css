@@ -17,13 +17,6 @@
     gap: 20px;
 }
 
-.ContenedorModal {
-    top: 15%;
-    position: absolute;
-    width: 100%;
-
-}
-
 .blurEffect {
     filter: blur(3px);
     pointer-events: none;
