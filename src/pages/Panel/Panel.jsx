@@ -22,7 +22,7 @@ const Panel = ({}) => {
     );
   }, []);
 
-  console.log("ESTADO DE LA MODAL: " + isModalOpen);
+
 
   return (
     <div className="containerPanel">
