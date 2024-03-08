@@ -1,0 +1,1 @@
+export { default as FormSolicitud } from './FormSolicitud';

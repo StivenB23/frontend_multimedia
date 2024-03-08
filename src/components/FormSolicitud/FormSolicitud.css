@@ -1,0 +1,39 @@
+.formsolicitud {
+    width: 100%;
+    height: 100vh;
+    gap: 5px;
+    position: relative;
+}
+
+.formsolicitud h2 {
+    text-align: start;
+    font-size: 3rem;
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.crearSolicitud {
+    width: 100%;
+}
+
+.crearSolicitud button {
+    border: 1px solid #14C2DF;
+    height: 2.5rem;
+    width: 8.5rem;
+    background-color: #FFFF;
+    color: #14C2DF;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.searchSolicitud {
+    width: 100%; 
+}
+
+.searchSolicitud input {
+    width: 50%;
+    height: 1rem;
+    padding: 2%;
+    margin-left: 1rem;
+
+}

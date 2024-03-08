@@ -86,7 +86,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                            <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
                                 <img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)
                             </Link>
                         </li>

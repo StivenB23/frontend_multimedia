@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ModalTest from "../../components/ModalTest/ModalTest";
+import { ModalSong } from "../../components/ModalSong";
 import "./ListSong.css";
 
 const ListSong = ({}) => {
@@ -40,10 +40,10 @@ const ListSong = ({}) => {
       </div>
 
       <div className="ContenedorModal">
-        <ModalTest
+        <ModalSong
           isOpen={isModalOpen}
           closeModal={() => setIsModalOpen(false)}
-        ></ModalTest>
+        ></ModalSong>
       </div>
     </div>
   );

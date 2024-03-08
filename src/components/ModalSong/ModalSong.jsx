@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./ModalTest.css";
+import "./ModalSong.css";
 
-const ModalTest = ({ isOpen, closeModal }) => {
+const ModalSong = ({ isOpen, closeModal }) => {
   const [isClosing, setIsClosing] = useState(false);
 
   const handleClose = () => {
@@ -20,7 +20,7 @@ const ModalTest = ({ isOpen, closeModal }) => {
         isClosing ? "modalAnimationOut" : "modalAnimation"
       }`}
     >
-      <div className="modaltest">
+      <div className="modalSong">
         <div className="closeModalPlayList">
           <button onClick={handleClose}>X</button>
         </div>
@@ -44,4 +44,4 @@ const ModalTest = ({ isOpen, closeModal }) => {
   );
 };
 
-export default ModalTest;
+export default ModalSong;
