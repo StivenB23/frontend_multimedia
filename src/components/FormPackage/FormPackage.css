@@ -11,6 +11,7 @@
     align-items: center;
 
 }
+
 /* .formContent{
     display: grid;
     height: 100%;
@@ -34,9 +35,11 @@
     font-size: 2rem;
     text-align: center;
 }
-.titulo{
+
+.titulo {
     flex: 1;
 }
+
 .formPackage input {
     border-radius: 5px;
     background-color: #e9eaeb;
@@ -44,23 +47,27 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    
+
 }
-.etiqueta{
+
+.etiqueta {
     padding: 10px;
-  width: 100%;
+    width: 100%;
     width: 250px;
 }
+
 .formPackageTitleTags {
     gap: 15px;
     display: flex;
     justify-content: space-between;
 }
-select{
+
+select {
     border-radius: 5px;
     background-color: #e9eaeb;
     border: none;
 }
+
 .containerButton {
     height: 100px;
     display: flex;
@@ -70,7 +77,7 @@ select{
 }
 
 .buttonYellow {
-margin-right: 0;
+    margin-right: 0;
     margin-bottom: 40px;
     width: 8rem;
     height: 2rem;

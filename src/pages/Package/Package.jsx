@@ -90,16 +90,17 @@ const Package = ({ }) => {
                     <div>
                         <h2>Modal temporal</h2>
                         <h4>Buscar Usuario</h4>
-                        <input type="text" onChange={findUser} />
+                        <p>Filtro en desarrollo</p>
+                        {/* <input type="text" onChange={findUser} /> */}
                         {filters?.map(filter => (
                             <div onClick={() => addUser(filter)}>
-                                <h2>{filter.nombre}</h2>
+                                <h2>{filter.nombre} (Dar clic)</h2>
                             </div>
                         ))}
                         <hr />
                         <h2>Cliente asignado</h2>
                         <p><b>{user.nombre}. {user.apellido}</b></p>
-                        <button type='button' onClick={buyPackage}>Registrar Compra</button>
+                        <button type='button' onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
                     </div>
                 )}
                 <div className='containerButtonPackege'>

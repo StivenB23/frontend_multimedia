@@ -67,6 +67,25 @@ const Sidebar = () => {
                         <p>Dashboard</p>
                     </Link>
                 </li>
+                <li onClick={setFalseToogle}>
+                    <Link className="mainMenu" to="/users">
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>Usuario (Funciona)</p>
+                    </Link>
+                </li>
+                <li onClick={setFalseToogle}>
+                    <Link className="mainMenu" to="/paquetes">
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>Paquetes (Funciona)</p>
+                    </Link>
+                </li>
+                <li onClick={setFalseToogle}>
+                    <Link className="mainMenu" to="/banner">
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>Banner Formulario (Funciona)</p>
+                    </Link>
+                </li>
+                <hr />
                 <li>
                     <span onClick={toggleSolicitudes} className={solicitudesOpen ? "mainMenu mainMenuActive" : "mainMenu"}>
                         <img className='icon' src={iconRequest} alt="" />

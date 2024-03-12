@@ -119,6 +119,16 @@ table tbody tr:hover{
   transition: 1s ease-in-out;
   border-radius: 10px;
 }
+.button-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-gray-dark);
+  font-weight: bold;
+  padding: 2px;
+  margin:10px 0px;
+  display: inline-block;
+  transition: 1s ease-in-out;
+  border-radius: 10px;
+}
 
 
 ::-webkit-scrollbar {

@@ -57,11 +57,13 @@ const ListPackage = () => {
     return (
         <div className='listpackage'>
             <h2>Paquetes</h2>
+            <Link className="button-yellow" to={"/formpaquetes"}>Registrar Paquete +</Link>
             <div>
                 <input type="text" className='search' onChange={filterPackages} />
                 <div className='filters'>
                     <select onChange={filterTags} defaultValue="">
                         <option value="" disabled>Etiquetas</option>
+                        <option value="">Todos</option>
                         {tags.map(tag => (
                             <option key={tag.id} value={tag.nombre}>{tag.nombre}</option>
                         ))}
