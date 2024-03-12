@@ -1,0 +1,167 @@
+.listsong {
+    width: 100%;
+    height: 100vh;
+    gap: 5px;
+    position: relative;
+}
+
+.listsong h2 {
+    text-align: start;
+    font-size: 3rem;
+    width: 100%;
+    margin: 0 !important;
+    color: #3C3C3C;
+}
+
+.searchSong {
+    width: 100%;
+
+}
+
+.listsong input {
+    width: 50%;
+    height: 2rem;
+    padding: 2%;
+
+}
+
+/* FILTERS */
+
+
+.filters {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+
+.filterState {
+    background-color: #CA2355;
+    width: 8rem;
+    height: 1.8rem;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+}
+
+.filterState h5,
+.filterRol h5 {
+    font-weight: 500;
+}
+
+
+.filterState img {
+    margin-left: 10px;
+    height: 0.8rem;
+    width: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+.filterRol {
+
+    display: flex;
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #CA2355;
+    width: 8rem;
+    height: 1.8rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+
+}
+
+.filterRol img {
+    margin-left: 10px;
+    height: 0.8rem;
+    width: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* CARD SONG */
+
+.cardSong {
+    border-radius: 6px;
+    margin-top: 20px;
+    width: 12rem;
+    height: 11rem;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imgSong {
+    background-image: url("/src/assets/img/songBackground.svg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px 6px 0px 0px;
+
+}
+
+.infoSong {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 3%;
+    border-radius: 0px 0px 6px 6px;
+    margin-bottom: 10px;
+}
+
+.infoSong h4 {
+    width: 100%;
+    font-size: 20px;
+    height: 50%;
+}
+
+.player {
+    border-radius: 5px;
+    width: 75%;
+    height: 1.5rem;
+    background-color: #CA2355;
+    display: flex;
+    align-items: center;
+}
+
+.player img {
+    margin-left: 8px;
+    height: 0.8rem;
+    width: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+.addPlayList {
+    width: 20%;
+    background-image: url("/src/assets/img/addPlayList.svg");
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* MODAL */
+
+.ContenedorModal {
+    top: 10%;
+    position: absolute;
+    width: 100%;
+}
+
+.blurEffect {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.backgroundIsOpenModal {
+    background-color: rgba(214, 212, 212, 0.5);
+
+}

@@ -1,0 +1,17 @@
+.contentform {
+  border: 1px solid;
+  border-radius: 15px;
+  margin: 15px;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contentform label, h2, h3, hr{
+    width: 100%;
+}
+
+.contentform label{
+    font-weight: 400;
+}
+

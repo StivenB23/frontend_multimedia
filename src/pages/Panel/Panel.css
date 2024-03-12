@@ -1,20 +1,28 @@
-/* .containerPanel{
-    border: 1px solid #ccc;
+.containerPanel {
     width: 100%;
-    background-color: #fff;
-} */
-
-/* .colorViolet {
-    color: var(--color-violet);
-} */
-.promotionalBanners {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 20px;
-   height: 200px;
+    height: 100vh;
+    position: relative;
 }
-.information{
+
+.promotionalBanners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    height: 200px;
+}
+
+.information {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap:20px;
+    gap: 20px;
+}
+
+.blurEffect {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.backgroundIsOpenModal{
+    background-color: rgba(214, 212, 212, 0.5); 
 }

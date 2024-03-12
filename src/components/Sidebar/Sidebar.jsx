@@ -14,6 +14,7 @@ const Sidebar = () => {
   const [listasReproduccionOpen, setListasReproduccionOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
+
   useEffect(() => {
     setuser(JSON.parse(sessionStorage.getItem('userInfo')));
   }, [])
@@ -62,6 +63,12 @@ const Sidebar = () => {
       </div>
       <nav className='links'>
                 <li onClick={setFalseToogle}>
+                    <Link className="mainMenu" to="/formMultiStep/formOne">
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>FORMULARIO MULTI STEP</p>
+                    </Link>
+                </li>
+                <li onClick={setFalseToogle}>
                     <Link className="mainMenu" to="/dashboard">
                         <img className='icon' src={iconRequest} alt="" />
                         <p>Dashboard</p>
@@ -98,7 +105,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                            <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
                                 <img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)
                             </Link>
                         </li>
@@ -111,7 +118,7 @@ const Sidebar = () => {
                     </span>
                     <ul className="subMenu" style={{ maxHeight: cancionesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'verCanciones' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('verCanciones')}>
+                            <Link to="/songs" onClick={() => setActiveSubMenu('verCanciones')}>
                                 <img className='icon' src={iconSound} alt="" /> Ver Canciones (Submenu)
                             </Link>
                         </li>
@@ -141,6 +148,10 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
+                
+                
+
+
             </nav>
     </section>
   );
