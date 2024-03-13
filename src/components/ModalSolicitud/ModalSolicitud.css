@@ -1,3 +1,177 @@
 .modalsolicitud {
-  
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    border-radius: 20px;
 }
+
+.modalInformation {
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    width: 90%;
+    height: 40rem;
+    background-color: #fFFF;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2%;
+}
+
+.closeModalSolicitud {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: end;
+}
+
+.closeModalSolicitud button {
+    background-color: #ffffff !important;
+    font-size: 1.5rem;
+    height: 2rem;
+    color: #404040;
+}
+
+.informationOptions {
+    width: 100%;
+    height: 5rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 50% 50%;
+}
+
+
+.tipoOptions {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.optionOne {
+    display: flex;
+    gap: 15px;
+}
+
+.optionOne .optionTwo,
+input[type="radio"] {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.optionTwo {
+    display: flex;
+    gap: 15px;
+}
+
+.SolicitudOptions {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.titleContentSolicitud {
+    width: 100%;
+}
+
+.contentSolicitud {
+    width: 100%;
+    height: 12rem;
+    background-color: #E9EAEB;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    background-color: #E9EAEB;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    resize: none;
+}
+
+.contadorCaracteres {
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    text-align: end;
+    margin-bottom: 10px;
+}
+
+.buttonSolicitudSave{
+    border: 1px solid;
+    height: 2.5rem;
+    border-radius: 15px;
+    width: 12rem;
+    background-color: #CA2355 !important;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.menu{
+    margin-top: 10px;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px ;
+    /* border: 1px solid; */
+}
+
+.menuOption{
+    width: 100%;
+}
+
+
+.menu select{
+    width: 25%;
+    height: 2.5rem;
+}
+
+
+
+/* ANIMACIÓN DE CIERRE */
+/* 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalAnimation {
+    animation: fadeIn 0.5s ease-out forwards;
+    display: flex;
+    justify-content: center;
+} */
+
+/* ANIMACIÓN DE SALIDA */
+/* 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.modalAnimationOut {
+    animation: fadeOut 0.5s ease-out forwards;
+    display: flex;
+    justify-content: center;
+} */
