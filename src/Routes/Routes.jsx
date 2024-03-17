@@ -6,7 +6,7 @@ import ListPackage from "../pages/ListPackage/ListPackage";
 import BannerPanel from "../pages/BannerPanel/BannerPanel";
 import FormPackage from "../components/FormPackage/FormPackage";
 import FormCliente from "../components/FormCliente/FormCliente";
-
+import EditPerfil from "../pages/EditPerfil/EditPerfil";
 import ListUsers from "../pages/ListUsers/ListUsers";
 import Package from "../pages/Package/Package";
 import SubscriptionClient from "../pages/SubscriptionClient/SubscriptionClient";
@@ -27,6 +27,7 @@ const MultimediaRoutes = () => {
           <Route path="/users" element={<ListUsers />}></Route>
           <Route path="/paquetes" element={<ListPackage />}></Route>
           <Route path="/banner" element={<BannerPanel />}></Route>
+          <Route path="/myPerfil" element={<EditPerfil/>}></Route>
           <Route path="/paquete/:id" element={<Package />}></Route>
           <Route path="/formpaquetes" element={<FormPackage />}></Route>
           <Route path="/formsolicitudes" element={<FormSolicitud />}></Route>

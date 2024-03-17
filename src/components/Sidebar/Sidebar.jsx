@@ -6,93 +6,82 @@ import iconSound from "../../assets/img/sound.svg";
 import iconLogout from "../../assets/img/iconLogout.svg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { getAvatarImgId } from "../../services/userService";
 const Sidebar = () => {
-  const [user, setuser] = useState({})
-  const [solicitudesOpen, setSolicitudesOpen] = useState(false);
-  const [cancionesOpen, setCancionesOpen] = useState(false);
-  const [listasReproduccionOpen, setListasReproduccionOpen] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState(null);
+    const [user, setuser] = useState({})
+    const [solicitudesOpen, setSolicitudesOpen] = useState(false);
+    const [cancionesOpen, setCancionesOpen] = useState(false);
+    const [listasReproduccionOpen, setListasReproduccionOpen] = useState(false);
+    const [activeSubMenu, setActiveSubMenu] = useState(null);
+    const [userPhotoUrl, setUserPhotoUrl] = useState(null);
 
+    useEffect(() => {
+        setuser(JSON.parse(sessionStorage.getItem('userInfo')));
+    }, [])
 
-  useEffect(() => {
-    setuser(JSON.parse(sessionStorage.getItem('userInfo')));
-  }, [])
+    const cerrarSesion = () => {
+        console.log("Dio click a cerrar sesión");
+        sessionStorage.removeItem("userInfo");
+        sessionStorage.removeItem("token");
+    };
 
-  const cerrarSesion = () => {
-    console.log("Dio click a cerrar sesión");
-    sessionStorage.removeItem("userInfo");
-    sessionStorage.removeItem("token");
-  };
+    const toggleSolicitudes = () => {
+        setSolicitudesOpen(!solicitudesOpen);
+        setCancionesOpen(false);
+        setListasReproduccionOpen(false);
+    };
 
-  const toggleSolicitudes = () => {
-    setSolicitudesOpen(!solicitudesOpen);
-    setCancionesOpen(false);
-    setListasReproduccionOpen(false);
-  };
+    const toggleCanciones = () => {
+        setCancionesOpen(!cancionesOpen);
+        setSolicitudesOpen(false);
+        setListasReproduccionOpen(false);
+    };
 
-  const toggleCanciones = () => {
-    setCancionesOpen(!cancionesOpen);
-    setSolicitudesOpen(false);
-    setListasReproduccionOpen(false);
-  };
+    const toggleListasReproduccion = () => {
+        setListasReproduccionOpen(!listasReproduccionOpen);
+        setSolicitudesOpen(false);
+        setCancionesOpen(false);
+    };
 
-  const toggleListasReproduccion = () => {
-    setListasReproduccionOpen(!listasReproduccionOpen);
-    setSolicitudesOpen(false);
-    setCancionesOpen(false);
-  };
+    const setFalseToogle = () => {
+        setSolicitudesOpen(false);
+        setCancionesOpen(false);
+        setListasReproduccionOpen(false);
+        setActiveSubMenu(null); // Reset activeSubMenu when closing submenus
+    };
+    useEffect(() => {
+        const fetchUserPhoto = async () => {
+            try {
+                const url = await getAvatarImgId(user.id);
+                if (url) {
+                    setUserPhotoUrl(URL.createObjectURL(url));
+                }
+            } catch (err) {
+                console.error(err);
+                setUserPhotoUrl(null);
+            }
+        };
 
-  const setFalseToogle = () => {
-    setSolicitudesOpen(false);
-    setCancionesOpen(false);
-    setListasReproduccionOpen(false);
-    setActiveSubMenu(null); // Reset activeSubMenu when closing submenus
-  };
+        fetchUserPhoto();
+    }, [user.id]);
+    return (
+        <section className="sidebar">
+            <div className="logo"></div>
 
-  return (
-    <section className="sidebar">
-      <div className="logo"></div>
-
-      <figure className="imagePerfil">
-        <img src={ImagePerfil} alt="" />
-      </figure>
-      <div className="informationUser">
-        <h3>{user.nombre} {user.apellido}</h3>
-        <small>{user.rol}</small>
-      </div>
-      <nav className='links'>
-                <li onClick={setFalseToogle}>
-                    <Link className="mainMenu" to="/formMultiStep/formOne">
-                        <img className='icon' src={iconRequest} alt="" />
-                        <p>FORMULARIO MULTI STEP</p>
-                    </Link>
-                </li>
+            <figure className="imagePerfil">
+                {userPhotoUrl !== null ? <img src={userPhotoUrl} alt="Vista previa de la imagen" /> : <img src={ImagePerfil} alt="Vista previa de la imagen" />}
+            </figure>
+            <div className="informationUser">
+                <h3>{user.nombre} {user.apellido}</h3>
+                <small>{user.rol}</small>
+            </div>
+            <nav className='links'>
                 <li onClick={setFalseToogle}>
                     <Link className="mainMenu" to="/dashboard">
                         <img className='icon' src={iconRequest} alt="" />
                         <p>Dashboard</p>
                     </Link>
                 </li>
-                <li onClick={setFalseToogle}>
-                    <Link className="mainMenu" to="/users">
-                        <img className='icon' src={iconRequest} alt="" />
-                        <p>Usuario (Funciona)</p>
-                    </Link>
-                </li>
-                <li onClick={setFalseToogle}>
-                    <Link className="mainMenu" to="/paquetes">
-                        <img className='icon' src={iconRequest} alt="" />
-                        <p>Paquetes (Funciona)</p>
-                    </Link>
-                </li>
-                <li onClick={setFalseToogle}>
-                    <Link className="mainMenu" to="/banner">
-                        <img className='icon' src={iconRequest} alt="" />
-                        <p>Banner Formulario (Funciona)</p>
-                    </Link>
-                </li>
-                <hr />
                 <li>
                     <span onClick={toggleSolicitudes} className={solicitudesOpen ? "mainMenu mainMenuActive" : "mainMenu"}>
                         <img className='icon' src={iconRequest} alt="" />
@@ -105,7 +94,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                            <Link to="" onClick={() => setActiveSubMenu('crearSolicitudes')}>
                                 <img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)
                             </Link>
                         </li>
@@ -118,7 +107,7 @@ const Sidebar = () => {
                     </span>
                     <ul className="subMenu" style={{ maxHeight: cancionesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'verCanciones' ? 'activeSubMenu' : ''}>
-                            <Link to="/songs" onClick={() => setActiveSubMenu('verCanciones')}>
+                            <Link to="" onClick={() => setActiveSubMenu('verCanciones')}>
                                 <img className='icon' src={iconSound} alt="" /> Ver Canciones (Submenu)
                             </Link>
                         </li>
@@ -148,13 +137,9 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
-                
-                
-
-
             </nav>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Sidebar;
