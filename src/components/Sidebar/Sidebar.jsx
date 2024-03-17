@@ -107,7 +107,7 @@ const Sidebar = () => {
                     </span>
                     <ul className="subMenu" style={{ maxHeight: cancionesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'verCanciones' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('verCanciones')}>
+                            <Link to="songs" onClick={() => setActiveSubMenu('verCanciones')}>
                                 <img className='icon' src={iconSound} alt="" /> Ver Canciones (Submenu)
                             </Link>
                         </li>
