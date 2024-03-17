@@ -2,6 +2,7 @@ import "./Sidebar.css";
 import ImagePerfil from "../../assets/img/perfil.png";
 import iconRequest from "../../assets/img/notification-circle.svg";
 import iconMusic from "../../assets/img/music-library-2.svg";
+import iconSetting from "../../assets/img/iconSetting.svg";
 import iconSound from "../../assets/img/sound.svg";
 import iconLogout from "../../assets/img/iconLogout.svg";
 import { Link } from "react-router-dom";
@@ -10,6 +11,8 @@ import { getAvatarImgId } from "../../services/userService";
 const Sidebar = () => {
     const [user, setuser] = useState({})
     const [solicitudesOpen, setSolicitudesOpen] = useState(false);
+    const [paquetesOpen, setPaquetesOpen] = useState(false);
+    const [usuariosOpen, setUsuariosOpen] = useState(false);
     const [cancionesOpen, setCancionesOpen] = useState(false);
     const [listasReproduccionOpen, setListasReproduccionOpen] = useState(false);
     const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -27,6 +30,18 @@ const Sidebar = () => {
 
     const toggleSolicitudes = () => {
         setSolicitudesOpen(!solicitudesOpen);
+        setCancionesOpen(false);
+        setListasReproduccionOpen(false);
+    };
+
+    const togglePaquetes = () => {
+        setPaquetesOpen(!paquetesOpen);
+        setCancionesOpen(false);
+        setListasReproduccionOpen(false);
+    };
+
+    const toggleUsuarios = () => {
+        setUsuariosOpen(!usuariosOpen);
         setCancionesOpen(false);
         setListasReproduccionOpen(false);
     };
@@ -89,13 +104,51 @@ const Sidebar = () => {
                     </span>
                     <ul className="subMenu" style={{ maxHeight: solicitudesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'solicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="/users" onClick={() => setActiveSubMenu('solicitudes')}>
+                            <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('solicitudes')}>
                                 <img className='icon' src={iconRequest} alt="" /> Ver Solicitudes (Submenu)
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
                             <Link to="" onClick={() => setActiveSubMenu('crearSolicitudes')}>
                                 <img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)
+                            </Link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <span onClick={togglePaquetes} className={paquetesOpen ? "mainMenu mainMenuActive" : "mainMenu"}>
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>Paquetes</p>
+                    </span>
+                    <ul className="subMenu" style={{ maxHeight: paquetesOpen ? '500px' : '0' }}>
+                        <li className={activeSubMenu === 'paquetes' ? 'activeSubMenu' : ''}>
+                            <Link to="/paquetes" onClick={() => setActiveSubMenu('paquetes')}>
+                                <img className='icon' src={iconRequest} alt="" /> Ver Paquetes (Submenu)
+                            </Link>
+                        </li>
+                        <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
+                            <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                                <img className='icon' src={iconRequest} alt="" /> Crear Paquete (Submenu)
+                            </Link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <span onClick={toggleUsuarios} className={usuariosOpen ? "mainMenu mainMenuActive" : "mainMenu"}>
+                        <img className='icon' src={iconRequest} alt="" />
+                        <p>Usuarios</p>
+                    </span>
+                    <ul className="subMenu" style={{ maxHeight: usuariosOpen ? '500px' : '0' }}>
+                        <li className={activeSubMenu === 'paquetes' ? 'activeSubMenu' : ''}>
+                            <Link to="/users" onClick={() => setActiveSubMenu('paquetes')}>
+                                <img className='icon' src={iconRequest} alt="" />  Usuarios (Submenu)
+                            </Link>
+                        </li>
+                        <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
+                            <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                                <img className='icon' src={iconRequest} alt="" /> Crear Paquete (Submenu)
                             </Link>
                         </li>
                     </ul>
@@ -126,6 +179,11 @@ const Sidebar = () => {
                     <ul className="subMenu" style={{ maxHeight: listasReproduccionOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'explorarListas' ? 'activeSubMenu' : ''}>
                             <Link to="" onClick={() => setActiveSubMenu('explorarListas')}>
+                                <img className='icon' src={iconMusic} alt="" /> Mis listas de reproducción
+                            </Link>
+                        </li>
+                        <li className={activeSubMenu === 'explorarListas' ? 'activeSubMenu' : ''}>
+                            <Link to="" onClick={() => setActiveSubMenu('explorarListas')}>
                                 <img className='icon' src={iconMusic} alt="" /> Explorar Listas de reproducción
                             </Link>
                         </li>
@@ -136,6 +194,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                 </li>
+                <Link to="/myPerfil"><img className='icon' src={iconSetting} alt="" />Configuración</Link>
                 <Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
             </nav>
         </section>

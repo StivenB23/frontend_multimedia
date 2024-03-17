@@ -21,3 +21,12 @@
 .listusers table{
     width: 100%;
 }
+
+.btn{
+    padding: 1px 3px;
+    border-radius: 2px;
+    background-color: var(--color-violet);
+    font-weight: 700;
+    color: var(--color-white);
+    cursor: pointer;
+}

@@ -1,24 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Package.css';
 import { comprarPaqueteCliente, obtenerPaquetePorIdServicio } from '../../services/paqueteServicio';
 import FormCliente from '../../components/FormCliente/FormCliente';
 import { getUsersServicio } from '../../services/userService';
+import Modal from '../../components/Modal/Modal';
+import useModal from '../../hooks/useModal';
 const Package = ({ }) => {
 
     const { id } = useParams();
     const [paquete, setPaquete] = useState({});
+    const [isOpen, openModal, closeModal] = useModal();
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
-    const [modalClient, setmodalClient] = useState(false);
     const [filters, setFilters] = useState([]);
+    const [actionPackage, setActionPackage] = useState("addClient");
 
 
     useEffect(() => {
         const obtenerPaquete = async () => {
             try {
                 const paquete = await obtenerPaquetePorIdServicio(id);
-                const usuarios = await getUsersServicio({ estado: 1 })
+                const usuarios = await getUsersServicio({ estado: 1, rol: "cliente" })
                 setUsers(usuarios);
                 setFilters(usuarios);
                 setPaquete(paquete);
@@ -31,8 +34,11 @@ const Package = ({ }) => {
     }, [id]);
 
 
-    const show = () => {
-        setmodalClient(!modalClient)
+    const showAddClient = () => {
+        setActionPackage("addClient");
+    }
+    const showClients = () => {
+        setActionPackage("clients");
     }
 
     const findUser = (event) => {
@@ -51,6 +57,10 @@ const Package = ({ }) => {
         setUser(userData)
     }
 
+    const removeUser = () => {
+        setUser({})
+    }
+
     const buyPackage = async () => {
         const buy = {
             id: paquete.id,
@@ -58,16 +68,18 @@ const Package = ({ }) => {
             diasVigencia: paquete.dias_vigencia,
         }
         await comprarPaqueteCliente(buy);
+        openModal()
     }
 
     return (
-        <div className='Package'>
-            <form className='formContent' action="">
-                <span className='arrow-back'>&#10132;</span>
-                <h2>{paquete.nombre} <figure className='iconPackage'>
-                </figure></h2>
+        <div className='package'>
+            <div className="details-package">
+                <div className='package-header'>
+                    <Link to='/paquetes' >Volver</Link>
+                    <h2>{paquete.nombre} <figure className='iconPackage'>
+                    </figure></h2>
+                </div>
                 <div className="paquete">{paquete.nombre_etiqueta}</div>
-
                 <div className='PackageTitleTags'>
                 </div>
                 <label htmlFor="">Descripción</label>
@@ -86,32 +98,51 @@ const Package = ({ }) => {
                         <span>{paquete.dias_vigencia}</span>
                     </div>
                 </div>
-                {modalClient && (
-                    <div>
-                        <h2>Modal temporal</h2>
-                        <h4>Buscar Usuario</h4>
-                        <p>Filtro en desarrollo</p>
-                        {/* <input type="text" onChange={findUser} /> */}
-                        {filters?.map(filter => (
-                            <div onClick={() => addUser(filter)}>
-                                <h2>{filter.nombre} (Dar clic)</h2>
-                            </div>
-                        ))}
-                        <hr />
-                        <h2>Cliente asignado</h2>
-                        <p><b>{user.nombre}. {user.apellido}</b></p>
-                        <button type='button' onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
-                    </div>
-                )}
-                <div className='containerButtonPackege'>
+
+                {/* <div className='containerButtonPackege'>
                     <button type="button" className='buttonYellowPackege' onClick={show} >
                         Asignar cliente
                     </button>
                     <button type="button" className='buttonWhiteWithYellowBorder' >
                         Clientes
                     </button>
+                </div> */}
+            </div>
+            <div className="package-actions">
+                <div className='containerButtonPackage'>
+                    <span className={actionPackage == "addClient" ? "tab tab-active" : "tab"} onClick={showAddClient}>Agregar Cliente</span>
+                    <span className={actionPackage == "clients" ? "tab tab-active" : "tab"} onClick={showClients}>Clientes</span>
                 </div>
-            </form>
+                {actionPackage === "addClient" ? (
+                    <div>
+                        <h4>Buscar Usuario</h4>
+                        <p>Filtro en desarrollo</p>
+                        <input type="text" onChange={findUser} />
+                        {
+                            user.nombre === undefined && (
+                                <div className='list-clients-add'>
+                                    {filters?.map(filter => (
+                                        <div className='client-add' onClick={() => addUser(filter)}>
+                                            <p>{filter.nombre}</p>
+                                        </div>
+                                    ))}
+                                </div>)
+                        }
+                        <hr />
+                        {
+                            user.nombre !== undefined && (
+                                <div className='user-selected'>
+                                    <span className='user'>{user?.nombre} {user?.apellido}</span><span className='btn-remove-user' onClick={removeUser}>X</span>
+                                </div>
+                            )
+                        }
+                        <Modal isOpen={isOpen} closeModal={closeModal} title={"Asignación Cliente"} message={"El usuario ha sido asignado al paquete de forma exitosa"} />
+                        <button type='button' onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
+                    </div>
+                ) : (<>
+                   <p>clientes</p>
+                </>)}
+            </div>
         </div>
     );
 };

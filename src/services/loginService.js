@@ -7,10 +7,11 @@ export const auth = async (credentials) => {
       credentials,
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       }
     );
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);

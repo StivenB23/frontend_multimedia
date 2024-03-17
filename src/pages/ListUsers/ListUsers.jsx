@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ListUsers.css';
-import { getUsersServicio } from '../../services/userService';
+import { getUsersServicio, inactiveUser } from '../../services/userService';
 
 const ListUsers = ({}) => {
     const [users, setUsers] = useState([]);
@@ -39,6 +39,12 @@ const ListUsers = ({}) => {
         user?.nombre.toLowerCase().includes(filter) || user?.apellido.toLowerCase().includes(filter)
     );
 
+    const userInactive = async (id, estado) =>{
+        await inactiveUser(id, estado);
+        const users = await getUsersServicio();
+        setUsers(users);
+    }
+
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
@@ -56,6 +62,7 @@ const ListUsers = ({}) => {
                         <th>Correo</th>
                         <th>Teléfono</th>
                         <th>Rol</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -67,9 +74,10 @@ const ListUsers = ({}) => {
                             <td>{user.apellido}</td>
                             <td>{user.correo}</td>
                             <td>{user.telefono}</td>
+                            <td>{user.estado == true?"Activo":"Inactivo"}</td>
                             <td>{user.rol}</td>
                             <td>
-                                <button>Inactivar</button>
+                                <button type='button' className='btn' onClick={()=>userInactive(user.id, user.estado == true?false:true)}>{user.estado == 1?"Inactivar":"Activar"}</button>
                                 <button>Actualizar</button>
                             </td>
                         </tr>

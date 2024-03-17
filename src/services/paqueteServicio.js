@@ -27,6 +27,7 @@ export const obtenerPaquetePorIdServicio = async (id) => {
 
 export const comprarPaqueteCliente = async (paquete) => {
     try {
+        console.log(paquete);
         const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/usuarios/paquete`, paquete);
         return response.data;
     } catch (error) {

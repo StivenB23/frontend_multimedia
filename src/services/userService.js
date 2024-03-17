@@ -61,11 +61,20 @@ export const updateAvatar = async (userId, avatar) => {
 };
 export const getAvatarImgId = async (userId) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/usuarios/${userId}/avatarUsuario`,{
-        responseType: 'blob'
+    const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/usuarios/${userId}/avatarUsuario`, {
+      responseType: 'blob'
     });
     return response.data;
   } catch (error) {
     return null;
   }
 };
+
+export const inactiveUser = async (idUser, estado) => {
+  try {
+    const response = await axios.put(`${import.meta.env.VITE_API_REST_URL}/usuarios/${idUser}/estado`, { estado });
+    return response.data;
+  } catch (error) {
+    return null;
+  }
+}

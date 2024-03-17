@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: multimedia_frontend
+    restart: always
+    build: ./
+    ports:
+      - 5173:5173
+    networks:
+      - network-multimedia
+    env_file: ./.env
+
+networks:
+  network-multimedia:
+    driver: bridge

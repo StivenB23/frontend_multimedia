@@ -1,0 +1,24 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(221, 221, 221);
+    width: 500px;
+    height: 350px;
+    box-shadow: 0 10px 10px rgba(118, 118, 118, 0);
+    display: none;
+}
+
+.is-open{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal h2{
+    text-align: center;
+}
+.modal p{
+    text-align: center;
+}
