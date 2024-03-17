@@ -1,5 +1,6 @@
 import "./Sidebar.css";
 import ImagePerfil from "../../assets/img/perfil.png";
+import IconDashboard from "../../assets/img/iconDashboard.svg";
 import iconRequest from "../../assets/img/notification-circle.svg";
 import iconMusic from "../../assets/img/music-library-2.svg";
 import iconSetting from "../../assets/img/iconSetting.svg";
@@ -93,7 +94,7 @@ const Sidebar = () => {
             <nav className='links'>
                 <li onClick={setFalseToogle}>
                     <Link className="mainMenu" to="/dashboard">
-                        <img className='icon' src={iconRequest} alt="" />
+                        <img className='icon' src={IconDashboard} alt="" />
                         <p>Dashboard</p>
                     </Link>
                 </li>
@@ -105,12 +106,12 @@ const Sidebar = () => {
                     <ul className="subMenu" style={{ maxHeight: solicitudesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'solicitudes' ? 'activeSubMenu' : ''}>
                             <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('solicitudes')}>
-                                <img className='icon' src={iconRequest} alt="" /> Ver Solicitudes (Submenu)
+                                 Ver Solicitudes (Submenu)
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('crearSolicitudes')}>
-                                <img className='icon' src={iconRequest} alt="" /> Crear Solicitudes (Submenu)
+                            <Link to="/formsolicitudes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                                 Crear Solicitudes (Submenu)
                             </Link>
                         </li>
                     </ul>
@@ -124,12 +125,12 @@ const Sidebar = () => {
                     <ul className="subMenu" style={{ maxHeight: paquetesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'paquetes' ? 'activeSubMenu' : ''}>
                             <Link to="/paquetes" onClick={() => setActiveSubMenu('paquetes')}>
-                                <img className='icon' src={iconRequest} alt="" /> Ver Paquetes (Submenu)
+                                 Ver Paquetes (Submenu)
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
                             <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
-                                <img className='icon' src={iconRequest} alt="" /> Crear Paquete (Submenu)
+                                 Crear Paquete (Submenu)
                             </Link>
                         </li>
                     </ul>
@@ -141,14 +142,14 @@ const Sidebar = () => {
                         <p>Usuarios</p>
                     </span>
                     <ul className="subMenu" style={{ maxHeight: usuariosOpen ? '500px' : '0' }}>
-                        <li className={activeSubMenu === 'paquetes' ? 'activeSubMenu' : ''}>
-                            <Link to="/users" onClick={() => setActiveSubMenu('paquetes')}>
-                                <img className='icon' src={iconRequest} alt="" />  Usuarios (Submenu)
+                        <li className={activeSubMenu === 'usuarios' ? 'activeSubMenu' : ''}>
+                            <Link to="/users" onClick={() => setActiveSubMenu('usuarios')}>
+                                  Ver usuarios
                             </Link>
                         </li>
-                        <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
-                                <img className='icon' src={iconRequest} alt="" /> Crear Paquete (Submenu)
+                        <li className={activeSubMenu === 'crearUsuarios' ? 'activeSubMenu' : ''}>
+                            <Link to="/formcliente" onClick={() => setActiveSubMenu('crearUsuarios')}>
+                                  Crear Usuario
                             </Link>
                         </li>
                     </ul>
@@ -161,12 +162,12 @@ const Sidebar = () => {
                     <ul className="subMenu" style={{ maxHeight: cancionesOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'verCanciones' ? 'activeSubMenu' : ''}>
                             <Link to="songs" onClick={() => setActiveSubMenu('verCanciones')}>
-                                <img className='icon' src={iconSound} alt="" /> Ver Canciones (Submenu)
+                                Ver Canciones (Submenu)
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearCanciones' ? 'activeSubMenu' : ''}>
                             <Link to="" onClick={() => setActiveSubMenu('crearCanciones')}>
-                                <img className='icon' src={iconSound} alt="" /> Crear Canciones (Submenu)
+                                Crear Canciones (Submenu)
                             </Link>
                         </li>
                     </ul>
@@ -177,19 +178,19 @@ const Sidebar = () => {
                         <p>Listas de reproducción</p>
                     </span>
                     <ul className="subMenu" style={{ maxHeight: listasReproduccionOpen ? '500px' : '0' }}>
-                        <li className={activeSubMenu === 'explorarListas' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('explorarListas')}>
-                                <img className='icon' src={iconMusic} alt="" /> Mis listas de reproducción
+                        <li className={activeSubMenu === 'misListas' ? 'activeSubMenu' : ''}>
+                            <Link to="" onClick={() => setActiveSubMenu('misListas')}>
+                                Mis listas de reproducción
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'explorarListas' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('explorarListas')}>
-                                <img className='icon' src={iconMusic} alt="" /> Explorar Listas de reproducción
+                            <Link to="/playlist" onClick={() => setActiveSubMenu('explorarListas')}>
+                                Explorar Listas de reproducción
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearListas' ? 'activeSubMenu' : ''}>
                             <Link to="" onClick={() => setActiveSubMenu('crearListas')}>
-                                <img className='icon' src={iconMusic} alt="" /> Crear Listas de reproducción
+                                Crear Listas de reproducción
                             </Link>
                         </li>
                     </ul>

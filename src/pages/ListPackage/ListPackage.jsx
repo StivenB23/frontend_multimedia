@@ -3,6 +3,7 @@ import './ListPackage.css';
 import { obtenerPaquetesServicio } from '../../services/paqueteServicio';
 import { obtenerEtiquetasServicio } from '../../services/etiquetasServicio';
 import { Link } from 'react-router-dom';
+import ImageBox from "../../assets/img/iconBox.svg";
 
 const ListPackage = () => {
     const [packages, setPackages] = useState([]);
@@ -73,7 +74,7 @@ const ListPackage = () => {
                     {currentPackages.map(paquete => (
                         <div key={paquete.id} className="card">
                             <div className="card-background">
-                          
+                                <img src={ImageBox} alt="" />
                             </div>
                             <div className="contentList">
                                 <div className="label">{paquete.nombre_etiqueta}</div>

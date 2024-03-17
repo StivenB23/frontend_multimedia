@@ -54,10 +54,19 @@
 }
 .card-background {
   border-radius: 10px 10px 0 0; 
-  padding-bottom: 40%;
-  background: rgba(253, 218, 137, 0.886)  no-repeat;
-  background-size: cover;
+  /* padding-bottom: 40%; */
+  background-size: contain;
   background-position: center;
+  background-color: rgba(249, 211, 135, 0.886) ;
+  background-blend-mode: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-background img{
+  width: 150px;
+  margin: 5px auto;
 }
 
 .card .label {

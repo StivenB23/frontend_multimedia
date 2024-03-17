@@ -17,6 +17,7 @@ import { FormTwo } from "../components/TESTEO/Forms/FormTwo";
 import { FormOne } from "../components/TESTEO/Forms/FormOne";
 import ListSong from "../pages/ListSong/ListSong";
 import FormSolicitud from "../components/FormSolicitud/FormSolicitud";
+import ListPlayList from "../pages/ListPlayList/ListPlayList";
 
 const MultimediaRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const MultimediaRoutes = () => {
           <Route path="/paquete/:id" element={<Package />}></Route>
           <Route path="/formpaquetes" element={<FormPackage />}></Route>
           <Route path="/formsolicitudes" element={<FormSolicitud />}></Route>
+          <Route path="/playlist" element={<ListPlayList />}></Route>
           <Route path="/formcliente" element={<FormCliente />}></Route>
           <Route path="/songs" element={<ListSong />}></Route>
           <Route
