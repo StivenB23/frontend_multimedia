@@ -128,8 +128,8 @@ const Sidebar = () => {
                                  Ver Paquetes (Submenu)
                             </Link>
                         </li>
-                        <li className={activeSubMenu === 'crearSolicitudes' ? 'activeSubMenu' : ''}>
-                            <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearSolicitudes')}>
+                        <li className={activeSubMenu === 'crearPaquetes' ? 'activeSubMenu' : ''}>
+                            <Link to="/formpaquetes" onClick={() => setActiveSubMenu('crearPaquetes')}>
                                  Crear Paquete (Submenu)
                             </Link>
                         </li>

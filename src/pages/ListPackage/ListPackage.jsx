@@ -58,7 +58,7 @@ const ListPackage = () => {
     return (
         <div className='listpackage'>
             <h2>Paquetes</h2>
-            <Link className="button-yellow" to={"/formpaquetes"}>Registrar Paquete +</Link>
+            <Link className="button-yellow" to={"/formpaquetes"}>Registrar Paquete</Link>
             <div>
                 <input type="text" className='search' onChange={filterPackages} />
                 <div className='filters'>
