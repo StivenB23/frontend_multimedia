@@ -1,6 +1,6 @@
 .formcliente {
   border: 1px solid;
-  height: 28rem;
+  height: 30rem;
   margin: 10px 40px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -11,7 +11,7 @@
 }
 
 .alargarTarjeta {
-  height: 47.6rem;
+  height: 50rem;
 }
 
 .titleFormCliente {
