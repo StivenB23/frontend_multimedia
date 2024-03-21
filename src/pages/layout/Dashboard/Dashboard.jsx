@@ -12,9 +12,11 @@ import { useEffect } from "react";
 
 const Dashboard = () => {
 	const navegate = useNavigate();
-	// useEffect(() => {
-	// 	navegate("/dashboard")
-	// }, [])
+	useEffect(() => {
+    if (sessionStorage.getItem('userInfo') == null) {
+      navegate("/login")
+    }
+	}, [])
   // useEffect(() => {
   // 	navegate("/dashboard")
   // }, [])

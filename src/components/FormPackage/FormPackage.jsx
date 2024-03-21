@@ -40,7 +40,9 @@ const FormPackage = ({ }) => {
                 precio: precio,
                 diasVigencia: diasVigencia
 			}
+			console.log(paquete);
 			const response = await registrarPaqueteServicio(paquete);
+			alert("Paquete regisrtrado de forma exitosa")
 			console.log(response);
 		} catch (error) {
 			console.log(error);
@@ -85,7 +87,7 @@ const FormPackage = ({ }) => {
 					</div>
 					<div>
 						<label htmlFor="">Días de vigencia</label>
-						<input type="number" onChange={(e)=>setNumeroCanciones(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e)=>setdiasVigencia(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Número de enlaces</label>

@@ -45,7 +45,7 @@ const MultimediaRoutes = () => {
             <Route path="formTwo" element={<FormTwo />}></Route>
           </Route>
         </Route>
-        <Route exact path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );

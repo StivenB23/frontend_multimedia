@@ -87,15 +87,27 @@ const Package = ({ }) => {
                 <div className="PackageSoundPublicationValidity">
                     <div>
                         <label htmlFor="">Número de canciones</label>
-                        <span>{paquete.limite_canciones}</span>
+                        <span>{paquete?.limite_canciones}</span>
                     </div>
                     <div>
-                        <label htmlFor="">Número de publicidades</label>
-                        <span>{paquete.numero_publicidad}</span>
+                        <label htmlFor="">Número de promociones</label>
+                        <span>{paquete?.limite_promociones}</span>
                     </div>
                     <div>
-                        <label htmlFor="">Días de vigencia</label>
-                        <span>{paquete.dias_vigencia}</span>
+                        <label htmlFor="">Número de jingles</label>
+                        <span>{paquete?.limite_jingles}</span>
+                    </div>
+                    <div>
+                        <label htmlFor="">Número de Enlaces</label>
+                        <span>{paquete?.numero_enlaces}</span>
+                    </div>
+                    <div>
+                        <label htmlFor="">Duración del paquete</label>
+                        <span>{paquete?.dias_vigencia} Días</span>
+                    </div>
+                    <div>
+                        <label htmlFor="">Precio</label>
+                        <span>{paquete?.precio} $</span>
                     </div>
                 </div>
 

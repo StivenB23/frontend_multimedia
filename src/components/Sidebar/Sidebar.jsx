@@ -6,10 +6,11 @@ import iconMusic from "../../assets/img/music-library-2.svg";
 import iconSetting from "../../assets/img/iconSetting.svg";
 import iconSound from "../../assets/img/sound.svg";
 import iconLogout from "../../assets/img/iconLogout.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAvatarImgId } from "../../services/userService";
 const Sidebar = () => {
+    const navegate = useNavigate();
     const [user, setuser] = useState({})
     const [solicitudesOpen, setSolicitudesOpen] = useState(false);
     const [paquetesOpen, setPaquetesOpen] = useState(false);
@@ -27,6 +28,7 @@ const Sidebar = () => {
         console.log("Dio click a cerrar sesión");
         sessionStorage.removeItem("userInfo");
         sessionStorage.removeItem("token");
+        navegate("/login");
     };
 
     const toggleSolicitudes = () => {
@@ -196,7 +198,7 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <Link to="/myPerfil"><img className='icon' src={iconSetting} alt="" />Configuración</Link>
-                <Link to="" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
+                <Link to="/login" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
             </nav>
         </section>
     );
