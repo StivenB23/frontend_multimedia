@@ -148,7 +148,7 @@ const Login = () => {
 
             <div style={{ width: "100%", height: "100%" }}>
               <ReactPlayer
-                url="https://www.youtube.com/watch?v=P2LwuF7zn9c&pp=ygURcGl0Y2ggY29ycG9yYXRpb24%3D"
+                url="https://youtu.be/Vs-yM_-qb5M"
                 volume={10}
                 muted
                 width="100%"

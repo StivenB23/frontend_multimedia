@@ -197,6 +197,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                 </li>
+                <Link to="/banner"><img className='icon' src={iconSetting} alt="" />Banner</Link>
                 <Link to="/myPerfil"><img className='icon' src={iconSetting} alt="" />Configuración</Link>
                 <Link to="/login" onClick={cerrarSesion}><img className='icon' src={iconLogout} alt="" />Cerrar Sesión</Link>
             </nav>
