@@ -1,15 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalSong } from "../../components/ModalSong";
+import { obtenerContenidoMultimedia } from "../../services/contenidoMultimedia";
+import { listarPlayListServicio } from "../../services/playListServicio";
 import "./ListSong.css";
 
-const ListSong = ({}) => {
+const ListSong = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [contenidoMultimedia, setContenidoMultimedia] = useState([]);
+  const [playList, setPlayList] = useState([]);
+  const [selectedSongId, setSelectedSongId] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    obtenerContenidoMultimedia()
+      .then((data) => {
+        setContenidoMultimedia(data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener el contenido multimedia:", error);
+      });
+
+    listarPlayListServicio()
+      .then((data) => {
+        setPlayList(data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener las playlists:", error);
+      });
+  }, [searchTerm]);
 
   return (
     <div className="listsong">
       <h2>Canciones</h2>
       <div className="searchSong">
-        <input type="text" />
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       <div className="filters">
@@ -24,26 +52,37 @@ const ListSong = ({}) => {
         </div>
       </div>
 
-      <div className="cardSong">
-        <div className="imgSong"></div>
+      {contenidoMultimedia
+        .filter(
+          (item) =>
+            item.tipo === "Song" &&
+            item.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map((cancion) => (
+          <div className="cardSong" key={cancion.id}>
+            <div className="imgSong"></div>
 
-        <div className="infoSong">
-          <h4>Nombre Canción</h4>
-          <div className="player">
-            <img src="/src/assets/img/play.svg" />
+            <div className="infoSong">
+              <h4>{cancion.nombre}</h4>
+              <div className="player">
+                <img src="/src/assets/img/play.svg" />
+              </div>
+              <div
+                className="addPlayList"
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setSelectedSongId([cancion.nombre, cancion.id]);
+                }}></div>
+            </div>
           </div>
-          <div
-            className="addPlayList"
-            onClick={() => setIsModalOpen(true)}
-          ></div>
-        </div>
-      </div>
+        ))}
 
       <div className="ContenedorModal">
         <ModalSong
+          playlists={playList}
           isOpen={isModalOpen}
-          closeModal={() => setIsModalOpen(false)}
-        ></ModalSong>
+          selectedSongId={selectedSongId}
+          closeModal={() => setIsModalOpen(false)}></ModalSong>
       </div>
     </div>
   );
