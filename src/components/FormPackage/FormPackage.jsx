@@ -51,10 +51,7 @@ const FormPackage = ({ }) => {
 
 	return (
 		<div className='formPackage'>
-			<form action="">
-				<div className='formContent'>
-				{/* <figure className='iconPackage'>
-				</figure> */}
+			<form className='formContent' action="">
 				<h2>Registrar <span className='textColorYellow'>Paquete</span></h2>
 				<div className='formPackageTitleTags'>
 					<div className='titulo'>
@@ -103,7 +100,6 @@ const FormPackage = ({ }) => {
 					<button type="button" className='buttonYellow' onClick={registrarPaquete}>
 						Guardar
 					</button>
-				</div>
 				</div>
 			</form>
 

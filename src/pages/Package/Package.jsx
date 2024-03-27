@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Package.css';
-import { comprarPaqueteCliente, obtenerPaquetePorIdServicio } from '../../services/paqueteServicio';
+import { comprarPaqueteCliente, obtenerPaquetePorIdServicio, obtenerUsuariosPaqueteIdServicio } from '../../services/paqueteServicio';
 import FormCliente from '../../components/FormCliente/FormCliente';
 import { getUsersServicio } from '../../services/userService';
 import Modal from '../../components/Modal/Modal';
@@ -15,6 +15,7 @@ const Package = ({ }) => {
     const [user, setUser] = useState({});
     const [filters, setFilters] = useState([]);
     const [actionPackage, setActionPackage] = useState("addClient");
+    const [clients, setclients] = useState([]);
 
 
     useEffect(() => {
@@ -37,7 +38,9 @@ const Package = ({ }) => {
     const showAddClient = () => {
         setActionPackage("addClient");
     }
-    const showClients = () => {
+    const showClients = async () => {
+        const clientsPackage = await obtenerUsuariosPaqueteIdServicio(id);
+        setclients(clientsPackage);
         setActionPackage("clients");
     }
 
@@ -47,7 +50,7 @@ const Package = ({ }) => {
             const filteredUsers = users.includes((filter) => filter.nombre == filter);
             setFilters(filteredUsers);
         } else {
-            setFilters(usuarios);
+            setFilters(users);
         }
     }
 
@@ -110,15 +113,6 @@ const Package = ({ }) => {
                         <span>{paquete?.precio} $</span>
                     </div>
                 </div>
-
-                {/* <div className='containerButtonPackege'>
-                    <button type="button" className='buttonYellowPackege' onClick={show} >
-                        Asignar cliente
-                    </button>
-                    <button type="button" className='buttonWhiteWithYellowBorder' >
-                        Clientes
-                    </button>
-                </div> */}
             </div>
             <div className="package-actions">
                 <div className='containerButtonPackage'>
@@ -130,16 +124,20 @@ const Package = ({ }) => {
                         <h4>Buscar Usuario</h4>
                         <p>Filtro en desarrollo</p>
                         <input type="text" onChange={findUser} />
-                        {
+                        {filters?.length === 0 ? (
+                            <h2>No hay Clientes</h2>
+                        ) : (
                             user.nombre === undefined && (
                                 <div className='list-clients-add'>
-                                    {filters?.map(filter => (
-                                        <div className='client-add' onClick={() => addUser(filter)}>
+                                    {filters?.map((filter, index) => (
+                                        <div className='client-add' key={index} onClick={() => addUser(filter)}>
                                             <p>{filter.nombre}</p>
                                         </div>
                                     ))}
-                                </div>)
-                        }
+                                </div>
+                            )
+                        )}
+
                         <hr />
                         {
                             user.nombre !== undefined && (
@@ -149,11 +147,22 @@ const Package = ({ }) => {
                             )
                         }
                         <Modal isOpen={isOpen} closeModal={closeModal} title={"Asignación Cliente"} message={"El usuario ha sido asignado al paquete de forma exitosa"} />
-                        <button type='button' onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
+                        <button type='button' disabled={user.nombre === undefined} onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
                     </div>
-                ) : (<>
-                   <p>clientes</p>
-                </>)}
+                ) : (
+                    <>
+                        {clients?.length === 0 ?
+                            (<h2>No hay Clientes asignados a este paquete</h2>) : (
+                                <div className="listClients">
+                                    <h3>Los clientes asignados a este paquete son:</h3>
+                                    <ul>
+                                        {clients?.map((client, index) => (
+                                            <li key={index}>{client.nombre} {client.apellido}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                    </>)}
             </div>
         </div>
     );

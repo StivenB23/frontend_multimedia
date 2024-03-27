@@ -6,6 +6,12 @@
   gap: 10px;
 }
 
+.package .listClients {
+  padding: 20px;
+}
+.package .listClients ul {
+  padding-left: 20px;
+}
 
 .details-package{
   background-color: var(--color-white);

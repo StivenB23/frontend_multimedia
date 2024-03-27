@@ -63,6 +63,7 @@ textarea {
   border: 1px solid var(--color-gray);
   padding: 10px;
   border-radius: 10px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 table {

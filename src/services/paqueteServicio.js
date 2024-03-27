@@ -34,3 +34,12 @@ export const comprarPaqueteCliente = async (paquete) => {
         return error;
     }
 }
+
+export const obtenerUsuariosPaqueteIdServicio = async (id) => {
+    try {
+        const response = await axios.get(`${import.meta.env.VITE_API_REST_URL}/paquete/${id}/usuarios`);
+        return response.data;
+    } catch (error) {
+        return error;
+    }
+}

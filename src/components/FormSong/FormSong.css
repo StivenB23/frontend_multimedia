@@ -1,0 +1,26 @@
+.formsong {
+}
+
+.contentSong{
+    display: flex;
+    justify-content: center;
+}
+.contentSong div:first-child{
+    width: 50%;
+}
+.contentSong div:last-child{
+    width: 50%;
+}
+.textColorViolet {
+  color: var(--color-violet);
+}
+
+.buttonViolet {
+  width: 8rem;
+  height: 2rem;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+  font-weight: bold;
+  transition: 1s ease-in-out;
+  border-radius: 10px;
+}
