@@ -26,7 +26,6 @@
 .positionBanner{
     display: flex;
     align-items: center;
-    width: 100%;
     margin: 10px;
     gap: 15px;
 }

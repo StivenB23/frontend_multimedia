@@ -29,3 +29,15 @@ export const listarBannerServicio = async () => {
     }
 }
 
+export const actualizarPosicioneServicio = async (banners) => {
+    try {
+        const response = await axios.patch(`${import.meta.env.VITE_API_REST_URL}/banner/actualizarPosiciones`, {
+            bannersOrdenados:banners
+        }
+        );
+        return response;
+    } catch (error) {
+        console.log(error);
+        return error.message;
+    }
+}
