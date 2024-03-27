@@ -87,6 +87,15 @@
     cursor: pointer;
 }
 
+.listSongs{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    
+}
+
 /* CARD SONG */
 
 .cardSong {

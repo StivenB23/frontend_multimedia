@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { añadirCanciónPlayListServicio } from "../../services/playListServicio";
 import "./ModalSong.css";
 
-const ModalSong = ({ isOpen, closeModal }) => {
+const ModalSong = ({ playlists, isOpen, closeModal, selectedSongId }) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [nombre, id] = selectedSongId;
+  const [selectedPlaylistId, setSelectedPlaylistId] = useState(null);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -18,27 +21,60 @@ const ModalSong = ({ isOpen, closeModal }) => {
     <div
       className={`modal-background ${
         isClosing ? "modalAnimationOut" : "modalAnimation"
-      }`}
-    >
+      }`}>
       <div className="modalSong">
         <div className="closeModalPlayList">
           <button onClick={handleClose}>X</button>
         </div>
 
-        <h1>Añadir Canción a Playlist</h1>
+        <h1>Añadir Canción a Playlist - {nombre}</h1>
 
-        <div className="cardPlayList">
-          <input type="radio" name="" id="" />
-          <h3>
-            Nombre Lista de <br /> reproducción
-          </h3>
-        </div>
+        {playlists.map((playlist) => (
+          <div className="cardPlayList" key={playlist.id}>
+            <input
+              type="radio"
+              name="playlist"
+              id={playlist.id}
+              onChange={() => setSelectedPlaylistId(playlist.id)}
+            />
+            <h3>{playlist.nombre}</h3>
+          </div>
+        ))}
 
         <div className="newPlayList">
           <button type="button">Nueva Lista</button>
         </div>
 
-        <button className="buttonPlayListSave">Guardar</button>
+        <button
+          className="buttonPlayListSave"
+          onClick={() => {
+            if (!selectedPlaylistId) {
+              alert("Por favor selecciona una playlist");
+              return;
+            }
+            añadirCanciónPlayListServicio({
+              lista_reproduccion_fk: selectedPlaylistId,
+              contenido_multimedia_fk: id,
+            })
+              .then(() => {
+                alert(
+                  `Canción agregada correctamente a la lista ${
+                    playlists.find(
+                      (playlist) => playlist.id === selectedPlaylistId
+                    ).nombre
+                  }`
+                );
+                closeModal();
+              })
+              .catch((error) => {
+                console.error(
+                  "Error al añadir la canción a la playlist:",
+                  error
+                );
+              });
+          }}>
+          Guardar
+        </button>
       </div>
     </div>
   );
