@@ -10,3 +10,18 @@ export const obtenerContenidoMultimedia = async () => {
     return error;
   }
 };
+
+export const saveContentMultimediaServicio = async (contenido) => {
+  try {
+      const response = await axios.post(`${import.meta.env.VITE_API_REST_URL}/contenido`, contenido, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+      );
+      return response.data;
+  } catch (error) {
+      console.log(error);
+      return error.message;
+  }
+}
