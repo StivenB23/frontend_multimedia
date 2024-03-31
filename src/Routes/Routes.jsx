@@ -19,6 +19,8 @@ import ListSong from "../pages/ListSong/ListSong";
 import FormSolicitud from "../components/FormSolicitud/FormSolicitud";
 import ListPlayList from "../pages/ListPlayList/ListPlayList";
 import FormSong from "../components/FormSong/FormSong";
+import MyPlayLists from "../pages/MyPlayLists/MyPlayLists";
+import FormPlayList from "../components/FormPlayList/FormPlayList";
 
 const MultimediaRoutes = () => {
   return (
@@ -34,7 +36,9 @@ const MultimediaRoutes = () => {
           <Route path="/formcancion" element={<FormSong />}></Route>
           <Route path="/formpaquetes" element={<FormPackage />}></Route>
           <Route path="/formsolicitudes" element={<FormSolicitud />}></Route>
+          <Route path="/formPlayList" element={<FormPlayList />}></Route>
           <Route path="/playlist" element={<ListPlayList />}></Route>
+          <Route path="/myplaylist" element={<MyPlayLists />}></Route>
           <Route path="/formcliente" element={<FormCliente />}></Route>
           <Route path="/songs" element={<ListSong />}></Route>
           <Route

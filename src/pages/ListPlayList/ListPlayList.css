@@ -1,3 +1,89 @@
 .listplaylist {
-  
+  width: 100%;
+  height: 100vh;
+  gap: 5px;
+  position: relative;
+}
+
+.listplaylist h2 {
+  text-align: start;
+  font-size: 3rem;
+  width: 100%;
+  margin: 0 !important;
+  color: #3c3c3c;
+}
+
+.listplaylist input {
+  width: 50%;
+  height: 2rem;
+  padding: 2%;
+}
+
+.playLists{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cardPlayL {
+  border-radius: 6px;
+  margin-top: 20px;
+  width: 12rem;
+  height: 11rem;
+  display: grid;
+  grid-template-rows: 60% 40%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imgPlaylist {
+  background-image: url("/src/assets/img/PlayList.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.infoPlayL {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 35px;
+  padding: 3%;
+}
+
+.infoPlayL h4 {
+  width: 100%;
+  font-size: 20px;
+  height: 50%;
+}
+
+.savePlayL {
+  width: 100%;
+  height: auto;
+  display: flex;
+
+}
+
+.moreInformation {
+  border-radius: 5px;
+  width: 80%;
+  height: 1.5rem;
+  border: 1px solid #ca2355;
+  color: #ca2355;
+  background-color: #ffff;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  font-size: 15px;
+}
+
+.addPlayL {
+  margin-top: 10px;
+  width: 20%;
+  background-image: url("/src/assets/img/savePlayList1.svg");
+  background-size: 60% 80%;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

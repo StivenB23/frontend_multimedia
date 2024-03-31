@@ -181,7 +181,7 @@ const Sidebar = () => {
                     </span>
                     <ul className="subMenu" style={{ maxHeight: listasReproduccionOpen ? '500px' : '0' }}>
                         <li className={activeSubMenu === 'misListas' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('misListas')}>
+                            <Link to="/myplaylist" onClick={() => setActiveSubMenu('misListas')}>
                                 Mis listas de reproducción
                             </Link>
                         </li>
@@ -191,7 +191,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearListas' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('crearListas')}>
+                            <Link to="/formPlayList" onClick={() => setActiveSubMenu('crearListas')}>
                                 Crear Listas de reproducción
                             </Link>
                         </li>
