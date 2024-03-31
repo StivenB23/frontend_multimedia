@@ -29,6 +29,8 @@ const ListSong = () => {
       });
   }, [searchTerm]);
 
+  const textLimite = (text, limit = 20) => text.slice(0, limit);
+
   return (
     <div className="listsong">
       <h2>Canciones</h2>
@@ -55,7 +57,7 @@ const ListSong = () => {
       {contenidoMultimedia
         .filter(
           (item) =>
-            item.tipo === "Song" &&
+            item.tipo === "cancion" &&
             item.nombre.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .map((cancion) => (
@@ -63,7 +65,7 @@ const ListSong = () => {
             <div className="imgSong"></div>
 
             <div className="infoSong">
-              <h4>{cancion.nombre}</h4>
+              <h4>{textLimite(cancion.nombre, 15)}...</h4>
               <div className="player">
                 <img src="/src/assets/img/play.svg" />
               </div>

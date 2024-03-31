@@ -101,13 +101,16 @@
 .cardSong {
     border-radius: 6px;
     margin-top: 20px;
-    width: 12rem;
+    width: 192px; 
     height: 11rem;
     display: grid;
     grid-template-rows: 60% 40%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 }
-
+.cardSong h4{
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
 .imgSong {
     background-image: url("/src/assets/img/songBackground.svg");
     background-size: cover;

@@ -168,7 +168,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={activeSubMenu === 'crearCanciones' ? 'activeSubMenu' : ''}>
-                            <Link to="" onClick={() => setActiveSubMenu('crearCanciones')}>
+                            <Link to="formcancion" onClick={() => setActiveSubMenu('crearCanciones')}>
                                 Crear Canciones (Submenu)
                             </Link>
                         </li>
