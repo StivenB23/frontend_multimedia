@@ -4,6 +4,7 @@ import { createUser } from "../../services/userService";
 import { useState, useEffect } from "react";
 import { obtenerSectorEmpresarial } from "../../services/sectorEmpresarialServicios";
 import { crearSectorEmpresarial } from "../../services/sectorEmpresarialServicios";
+import Swal from "sweetalert2";
 
 const FormCliente = () => {
   const {
@@ -48,10 +49,21 @@ const FormCliente = () => {
       };
       const registrarservicio = await createUser(cliente_data);
 
-      const {id} = registrarservicio.data
+      const { id } = registrarservicio.data
 
       if (registrarservicio && !menuEmpresa) {
-        alert("Usuario registrado correctamente");
+        Swal.fire({
+          icon: "success",
+          title: "Usuario creado con exito",
+          showConfirmButton: true,
+          confirmButtonColor: "#CA2355",
+          iconColor: "#CA2355",
+          customClass: {
+            confirmButton: "btn-custom-color",
+          }
+        }).then(() => {
+          window.location.reload();
+        });
         reset();
       }
 
@@ -173,9 +185,8 @@ const FormCliente = () => {
         </div>
 
         <div
-          className={`buttonFormCliente ${
-            menuEmpresa ? "hidden" : "buttonFormCliente"
-          }`}>
+          className={`buttonFormCliente ${menuEmpresa ? "hidden" : "buttonFormCliente"
+            }`}>
           <button type="submit" onClick={handleSubmit(registrar)}>
             Registrar
           </button>

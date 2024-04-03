@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './FormPackage.css';
 import { obtenerEtiquetasServicio } from '../../services/etiquetasServicio';
 import { registrarPaqueteServicio } from '../../services/paqueteServicio';
+import Swal from 'sweetalert2';
+
 
 const FormPackage = ({ }) => {
 	const [etiquetas, setEtiquetas] = useState([])
@@ -32,18 +34,34 @@ const FormPackage = ({ }) => {
 			const paquete = {
 				nombre: titulo,
 				etiqueta: etiqueta,
-                descripcion: descripcion,
-                numeroCanciones: numeroCanciones,
-                numeroPromociones: numeroPromociones,
-                numeroJingles: numeroJingles,
-                numeroEnlaces: numeroEnlaces,
-                precio: precio,
-                diasVigencia: diasVigencia
+				descripcion: descripcion,
+				numeroCanciones: numeroCanciones,
+				numeroPromociones: numeroPromociones,
+				numeroJingles: numeroJingles,
+				numeroEnlaces: numeroEnlaces,
+				precio: precio,
+				diasVigencia: diasVigencia
 			}
 			console.log(paquete);
 			const response = await registrarPaqueteServicio(paquete);
-			alert("Paquete regisrtrado de forma exitosa")
-			console.log(response);
+
+			if (!response) {
+				console.log("Error en la creación del paquete");
+			}
+
+			Swal.fire({
+				icon: "success",
+				title: "Paquete creado con éxito",
+				showConfirmButton: true,
+				confirmButtonColor: "#CA2355",
+				iconColor: "#CA2355",
+				customClass: {
+					confirmButton: "btn-custom-color",
+				}
+			}).then(() => {
+				window.location.reload();
+			});
+
 		} catch (error) {
 			console.log(error);
 		}
@@ -56,11 +74,11 @@ const FormPackage = ({ }) => {
 				<div className='formPackageTitleTags'>
 					<div className='titulo'>
 						<label htmlFor="">Titulo</label> <br />
-						<input type="text" onChange={(e)=>setTitulo(e.target.value)} id="" />
+						<input type="text" onChange={(e) => setTitulo(e.target.value)} id="" />
 					</div>
 					<div>
 						<label htmlFor="">tipo de paquete</label> <br />
-						<select className='etiqueta' name="" onChange={(e)=>setEtiqueta(e.target.value)} id="">
+						<select className='etiqueta' name="" onChange={(e) => setEtiqueta(e.target.value)} id="">
 							{etiquetas.map((etiqueta) => (
 								<option value={etiqueta.id}>{etiqueta.nombre}</option>
 							))}
@@ -68,31 +86,31 @@ const FormPackage = ({ }) => {
 					</div>
 				</div>
 				<label htmlFor="">Descripción</label>
-				<textarea className='description' onChange={(e)=>setDescripcion(e.target.value)} name="" id="" cols="30" rows="10"></textarea>
+				<textarea className='description' onChange={(e) => setDescripcion(e.target.value)} name="" id="" cols="30" rows="10"></textarea>
 				<div className="formPackageSoundPublicationValidity">
 					<div>
 						<label htmlFor="">Número de canciones</label>
-						<input type="number" onChange={(e)=>setNumeroCanciones(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setNumeroCanciones(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Número de promociones</label>
-						<input type="number" onChange={(e)=>setnumeroPromociones(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setnumeroPromociones(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Número de jingles</label>
-						<input type="number" onChange={(e)=>setnumeroJingles(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setnumeroJingles(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Días de vigencia</label>
-						<input type="number" onChange={(e)=>setdiasVigencia(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setdiasVigencia(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Número de enlaces</label>
-						<input type="number" onChange={(e)=>setnumeroEnlaces(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setnumeroEnlaces(e.target.value)} min={0} name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="">Precio</label>
-						<input type="number" onChange={(e)=>setprecio(e.target.value)} min={0} name="" id="" />
+						<input type="number" onChange={(e) => setprecio(e.target.value)} min={0} name="" id="" />
 					</div>
 				</div>
 				<div className='containerButton'>

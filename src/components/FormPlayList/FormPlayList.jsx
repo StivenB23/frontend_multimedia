@@ -4,6 +4,8 @@ import { crearPlayListServicio } from "../../services/playListServicio";
 import { useEffect } from "react";
 import { getGenerosService } from "../../services/generoService";
 import { postUsuarioLista } from "../../services/usuarioListaService";
+import Swal from "sweetalert2"; "sweetalert2";
+
 
 const FormPlayList = () => {
   const [nombre, setNombre] = useState("");
@@ -42,8 +44,19 @@ const FormPlayList = () => {
       throw new Error("Error al asociar la lista de reproducción al usuario");
     }
 
-    alert("Exito en la creación de la lista de reproducción");
-    window.location.reload();
+    Swal.fire({
+      icon: "success",
+      title: "Lista de reproducción creada con éxito",
+      showConfirmButton: true,
+      confirmButtonColor: "#CA2355",
+      iconColor: "#CA2355",
+      customClass: {
+        confirmButton: "btn-custom-color",
+      }
+    }).then(() => {
+      window.location.reload();
+    });
+    
     return listaReproduccion;
   };
 

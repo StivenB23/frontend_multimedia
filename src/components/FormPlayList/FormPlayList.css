@@ -87,3 +87,11 @@ form{
 .savePlayList button{
     border-radius: 10px;
 }
+
+.btn-custom-color{
+  background-color: #CA2355 !important; 
+  color: #fff !important;
+  
+}
+
+
