@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { añadirCanciónPlayListServicio } from "../../services/playListServicio";
+import Swal from "sweetalert2";
 import "./ModalSong.css";
 
 const ModalSong = ({ playlists, isOpen, closeModal, selectedSongId }) => {
@@ -19,9 +20,8 @@ const ModalSong = ({ playlists, isOpen, closeModal, selectedSongId }) => {
 
   return (
     <div
-      className={`modal-background ${
-        isClosing ? "modalAnimationOut" : "modalAnimation"
-      }`}>
+      className={`modal-background ${isClosing ? "modalAnimationOut" : "modalAnimation"
+        }`}>
       <div className="modalSong">
         <div className="closeModalPlayList">
           <button onClick={handleClose}>X</button>
@@ -56,16 +56,19 @@ const ModalSong = ({ playlists, isOpen, closeModal, selectedSongId }) => {
               lista_reproduccion_fk: selectedPlaylistId,
               contenido_multimedia_fk: id,
             })
-              .then(() => {
-                alert(
-                  `Canción agregada correctamente a la lista ${
-                    playlists.find(
-                      (playlist) => playlist.id === selectedPlaylistId
-                    ).nombre
-                  }`
-                );
-                closeModal();
-              })
+            Swal.fire({
+              icon: "success",
+              title: `Canción agregada correctamente a la lista ${playlists.find((playlist) => playlist.id === selectedPlaylistId).nombre
+                }`,
+              showConfirmButton: true,
+              confirmButtonColor: "#CA2355",
+              iconColor: "#CA2355",
+              customClass: {
+                confirmButton: "btn-custom-color",
+              },
+            }).then(() => {
+              closeModal();
+            })
               .catch((error) => {
                 console.error(
                   "Error al añadir la canción a la playlist:",

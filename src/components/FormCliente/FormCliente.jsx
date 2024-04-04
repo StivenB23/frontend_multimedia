@@ -86,7 +86,19 @@ const FormCliente = () => {
         console.log("Insercion de empresa " + registrarEmpresa);
 
         if (registrarservicio && registrarEmpresa) {
-          alert("Usuario y asignación de empresa registrado correctamente");
+    
+          Swal.fire({
+            icon: "success",
+            title: "Usuario y asignación de empresa registrado correctamente",
+            showConfirmButton: true,
+            confirmButtonColor: "#CA2355",
+            iconColor: "#CA2355",
+            customClass: {
+              confirmButton: "btn-custom-color",
+            }
+          }).then(() => {
+            window.location.reload();
+          });
           reset();
         }
       }

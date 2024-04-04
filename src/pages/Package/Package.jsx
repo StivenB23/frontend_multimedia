@@ -6,11 +6,13 @@ import FormCliente from '../../components/FormCliente/FormCliente';
 import { getUsersServicio } from '../../services/userService';
 import Modal from '../../components/Modal/Modal';
 import useModal from '../../hooks/useModal';
+import Swal from 'sweetalert2';
+
+
 const Package = ({ }) => {
 
     const { id } = useParams();
     const [paquete, setPaquete] = useState({});
-    const [isOpen, openModal, closeModal] = useModal();
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
     const [filters, setFilters] = useState([]);
@@ -71,7 +73,19 @@ const Package = ({ }) => {
             diasVigencia: paquete.dias_vigencia,
         }
         await comprarPaqueteCliente(buy);
-        openModal()
+
+        Swal.fire({
+            icon: "success",
+            title: "El usuario ha sido asignado al paquete de forma exitosa",
+            showConfirmButton: true,
+            confirmButtonColor: "#CA2355",
+            iconColor: "#CA2355",
+            customClass: {
+                confirmButton: "btn-custom-color",
+            }
+        }).then(() => {
+            window.location.reload();
+        });
     }
 
     return (
@@ -146,7 +160,6 @@ const Package = ({ }) => {
                                 </div>
                             )
                         }
-                        <Modal isOpen={isOpen} closeModal={closeModal} title={"Asignación Cliente"} message={"El usuario ha sido asignado al paquete de forma exitosa"} />
                         <button type='button' disabled={user.nombre === undefined} onClick={buyPackage}>Registrar Compra (Dar clic para asignar)</button>
                     </div>
                 ) : (

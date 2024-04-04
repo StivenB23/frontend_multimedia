@@ -3,6 +3,9 @@ import './EditPerfil.css';
 import ImagePerfil from "../../assets/img/perfil.png";
 import { cambiarClaveUsuario, updateAvatar } from '../../services/userService';
 import { getAvatarImgId } from '../../services/userService';
+import Swal from "sweetalert2";
+
+
 const EditPerfil = () => {
 
     const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
@@ -30,7 +33,16 @@ const EditPerfil = () => {
 
         try {
             await cambiarClaveUsuario(userInfo.id, { claveActual: currentPassword, nuevaClave: newPassword });
-            alert("Contraseña cambiada exitosamente");
+            Swal.fire({
+                icon: "success",
+                title: "Contraseña cambiada exitosamente",
+                showConfirmButton: true,
+                confirmButtonColor: "#CA2355",
+                iconColor: "#CA2355",
+                customClass: {
+                  confirmButton: "btn-custom-color",
+                }
+              })
             setCurrentPassword("");
             setNewPassword("");
             setConfirmNewPassword("");

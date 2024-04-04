@@ -15,47 +15,50 @@ const ListPlayList = () => {
   const usuario_fk = userInfo.id;
 
   const handleAddToList = (playlistId) => {
-    Swal.fire({
-      title: "¿Estás seguro de guardar esta lista?",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonText: "Sí",
-      cancelButtonText: "No",
-      confirmButtonColor: "#CA2355",
-      iconColor: "#CA2355",
-      customClass: {
-        confirmButton: "btn-custom-color",
-      }
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const data = {
-          usuario_fk,
-          lista_reproduccion_fk: playlistId,
-        };
-  
-        postUsuarioLista(data)
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              title: "Lista guardada correctamente",
-              showConfirmButton: true,
-              confirmButtonColor: "#CA2355",
-              iconColor: "#CA2355",
-              customClass: {
-                confirmButton: "btn-custom-color",
-              }
-            }).then(() => {
-              window.location.reload();
+    if (!isSaved(playlistId)) {
+      Swal.fire({
+        title: "¿Estás seguro de guardar esta lista?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Sí",
+        cancelButtonText: "No",
+        confirmButtonColor: "#CA2355",
+        iconColor: "#CA2355",
+        customClass: {
+          confirmButton: "btn-custom-color",
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const data = {
+            usuario_fk,
+            lista_reproduccion_fk: playlistId,
+          };
+
+          postUsuarioLista(data)
+            .then(() => {
+              Swal.fire({
+                icon: "success",
+                title: "Lista guardada correctamente",
+                showConfirmButton: true,
+                confirmButtonColor: "#CA2355",
+                iconColor: "#CA2355",
+                customClass: {
+                  confirmButton: "btn-custom-color",
+                }
+              }).then(() => {
+                window.location.reload();
+              });
+              setSavedPlayLists([...savedPlayLists, data]);
+            })
+            .catch((error) => {
+              console.error("Error al guardar la lista:", error);
             });
-            setSavedPlayLists([...savedPlayLists, data]);
-          })
-          .catch((error) => {
-            console.error("Error al guardar la lista:", error);
-          });
-      }
-    });
+        }
+      });
+    }
   };
-  
+
+
 
   useEffect(() => {
     listarPlayListServicio()

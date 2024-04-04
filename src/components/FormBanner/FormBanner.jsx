@@ -14,7 +14,26 @@ const FormBanner = () => {
         tipoPublicidad,
         archivo,
       };
-      await registrarBannerServicio(banner_data);
+      const response = await registrarBannerServicio(banner_data);
+    
+      if (!response){
+        return "Error en registrar el banner"
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Banner creado con éxito",
+        showConfirmButton: true,
+        confirmButtonColor: "#CA2355",
+        iconColor: "#CA2355",
+        customClass: {
+          confirmButton: "btn-custom-color",
+        }
+      }).then(() => {
+        window.location.reload();
+      });
+      reset();
+    
     } catch (error) {
       console.log(error);
     }
